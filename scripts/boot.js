@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   startBoot()
 })
 
+/**
+ * Main boot effect stuff
+ */
 async function startBoot() {
   // First show Canadian Megatrends stuff
   const megatrends = document.querySelector('#console .container #megatrends')
@@ -59,6 +62,12 @@ async function startBoot() {
   await endBoot()
 }
 
+/**
+ * Push a message to the "console"
+ * 
+ * @param {string} m Message to show
+ * @returns 
+ */
 async function doConsoleMessage(m) {
   const consoleContainer = document.querySelector('#console .container')
   const message = document.createElement('div')
@@ -68,7 +77,7 @@ async function doConsoleMessage(m) {
 
   // This is something that has to "load" a status (OK/ERR/etc)
   if (m.endsWith('...')) {
-    const isErr = Math.floor(Math.random() * 5) === 3
+    const isErr = rand(0, 5) === 3
     const statusColor = isErr ? 'red' : 'green'
     const appended = consoleContainer.appendChild(message)
 
@@ -83,13 +92,22 @@ async function doConsoleMessage(m) {
   consoleContainer.appendChild(message)
 }
 
+/**
+ * Cleanup sequence, show loading screen briefly, then remove that as well
+ */
 async function endBoot() {
   const consoleElm = document.querySelector('#console')
+  const bootElm = document.querySelector('#boot')
   consoleElm.innerHTML = ''
 
   await wait(1000)
 
   consoleElm.remove()
+
+  await wait(5000)
+
+  // TODO uncomment when the desktop stuff has been started
+  //bootElm.remove()
 }
 
 function wait(ms) {

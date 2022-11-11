@@ -23,6 +23,7 @@
   display: block;
 }
 
+/* Logo container, not logo itself */
 #mg_logo {
   display: flex;
   flex-direction: row;
@@ -35,6 +36,7 @@
   height: 100px;
 }
 
+/* "Canadian Megatrends" */
 #mg_beside {
   font-family: 'Times New Roman', Times, serif;
 }
@@ -43,6 +45,7 @@
   display: block;
 }
 
+/* Used for OK and ERR messages */
 #console .console_append {
   display: inline-block;
 }
