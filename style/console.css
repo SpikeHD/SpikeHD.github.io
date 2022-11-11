@@ -1,0 +1,56 @@
+#console {
+  /* This is gonna be in front of a lot of other content */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  background-color: #000;
+  color: #fff;
+
+  font-family: 'ClaCon2', 'Consolas', 'Courier New', Courier, monospace;
+
+  z-index: 30;
+}
+
+#console .container {
+  margin: 20px;
+}
+
+#megatrends {
+  display: block;
+}
+
+#mg_logo {
+  display: flex;
+  flex-direction: row;
+  font-size: 42px;
+
+  margin-bottom: 20px;
+}
+
+#megatrends img {
+  height: 100px;
+}
+
+#mg_beside {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#console .message {
+  display: block;
+}
+
+#console .console_append {
+  display: inline-block;
+}
+
+#console .green {
+  color: #00ff22;
+}
+
+#console .red {
+  color: #ff0000;
+}

@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'ClaCon2';
+  src: url('./font/clacon2.ttf')
+}
+
+html {
+  user-select: none;
+}
