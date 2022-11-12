@@ -90,8 +90,12 @@
 #desktop_icons {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
+
+  max-height: 80%;
+  width: fit-content;
 
   font-family: 'Pixelated MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 

@@ -1,0 +1,91 @@
+<div id="asciivert">
+  <pre id="ascii_title">
+    _____                .__.______   ____             __   
+   /  _  \   ______ ____ |__|__\   \ /   /____________/  |_ 
+  /  /_\  \ /  ___// ___\|  |  |\   Y   // __ \_  __ \   __\
+ /    |    \\___ \\  \___|  |  | \     /\  ___/|  | \/|  |  
+ \____|__  /____  >\___  >__|__|  \___/  \___  >__|   |__|  
+         \/     \/     \/                    \/            
+=============================================================
+  </pre>
+  <p>
+    AsciiVert was a tool I created that could convert images AND videos into ascii art! It is a fairly old project now, but I am still proud of it.
+    It is written in JS and utilizes <a target="_blank" href="https://nodejs.org/en/">Node.js</a>, <a target="_blank" href="https://github.com/oliver-moran/jimp">Jimp</a>,
+    <a target="_blank" href="https://github.com/Automattic/node-canvas">canvas</a>, <a target="_blank" href="https://github.com/fluent-ffmpeg/node-fluent-ffmpeg">fluent-ffmpeg</a> 
+    and <a target="_blank" href="https://github.com/phaux/node-ffmpeg-stream">ffmpeg-stream</a>.
+  </p>
+  <div class="ascii_image_section">
+    <div class="comparison">
+      <img src="./image/screenshots/asciivert/asciivert_3.jpg" />
+        -->
+      <img src="./image/screenshots/asciivert/asciivert_4.png" />
+    </div>
+    <p>
+      AsciiVert works best on lineart and images with bold, constrasting colors/shapes/etc.<br/>
+      Credit to <a href="https://twitter.com/pitchcanker/status/1588218710090997760/photo/1">@pitchcanker on Twitter</a>!
+    </p>
+  </div>
+  <h1>Introduction</h1>
+  <p>
+    Like most of my projects, the original scope was somewhat small: make a tool that converts images to ascii art. And again, like most of my projects,
+    the scope immediately expanded as I learned of what I could do if I utilized <a target="_blank" href="https://ffmpeg.org/">ffmpeg.</a>
+    The nice thing about ffmpeg is that I didn't have to manually write a myriad of different handlers for different video/image filetypes,
+    so the project stayed small but extremely versatile.
+  </p>
+  <div class="ascii_image_section">
+    <div class="comparison">
+      <img src="./image/screenshots/asciivert/asciivert_2.jpg" />
+        -->
+      <img src="./image/screenshots/asciivert/asciivert_1.png" />
+    </div>
+    Some images work better than others...
+  </div>
+  <p>
+    AsciiVert has MANY options for tweaking the image or video, such as setting the framerate and symbol-resolution (for example, 200x200 is 200 characters by 200 characters,
+    rather than by pixels).
+  </p>
+  <p>
+    AsciiVert also has (had) a website and API! I stopped paying for the domain ages ago, but the site came with 3 options: image, raw text, and video. Image and video
+    are fairly self-explanatory, but the raw text, or "mini" mode, was intended for creating very small, copy-pasteable versions of images, to send as messages or in emails
+    or whatever.
+  </p>
+  <div class="ascii_image_section">
+    <img src="./image/screenshots/asciivert/asciivert_site.jpg" style="width: 90%" />
+    AsciiVert.art with the "Convert a video" menu section selected
+  </div>
+  <p>
+    The images can also come out quite large! <a target="_blank" href="./image/screenshots/asciivert/asciivert_4.png">Click here</a> (opens in a new tab)
+    to see a high-resolution image generated with the tool. You can zoom in and see all of the characters in perfect detail! The one linked, for example, is almost
+    1MB with a resolution of 3976x4970
+  </p>
+  <h1>
+    Technical Nonesense (boring yuck ew)
+  </h1>
+  <p>
+    A fun quetion I had to answer early on was "how do you calculate the 'darkness' of a pixel?". Googling that now, you will probably just find
+    a StackOverflow answer, but when I was, I couldn't find much. I ended up using this forumala<br/>
+
+    <pre class="code">
+      let brightness = Math.sqrt(
+        (.241 * color.r * color.r) +
+        (.691 * color.g * color.g) +
+        (.068 * color.b * color.b)
+      )
+    </pre>
+    that I found in <a target="_blank" href="https://www.nbdtech.com/Blog/archive/2008/04/27/calculating-the-perceived-brightness-of-a-color.aspx">an old blog post from 2008</a>.
+    Then, I have an array of symbols that are sorted from most dense to least dense (to simulate "darkness"), and I use the brightness to grab one:
+    <pre class="code">
+      const symbols = ['@', '#', '$', '%', ';', ':', '^', '*', ',', '.', '\'', ' ']
+      let symbol = symbols[Math.round(brightness / (255 / (symbols.length-1)))]
+    </pre>
+    This list has some potentially redundant characters (',' and '.' are <i>very</i> similar), so something I often do is change the amount of symbols/which symbols to use depending on the
+    color/brightness range of my image, to produce more usable results. That would have made a great CLI/API options, but I did not think of it at the time 😄.
+  </p>
+  <div class="ascii_image_section">
+    <video autoplay loop src="./image/screenshots/asciivert/tomato.mp4"></video>
+    <p>
+      A spinning tomato. Very cool. View the full un-scaled (4200x2366) version <a target="_blank" href="./image/screenshots/asciivert/tomato_large.mp4">here!</a>
+      (it may say the file is corrupt because it is too large, so you'll have to download the file)
+    </p>
+  </div>
+</div>
