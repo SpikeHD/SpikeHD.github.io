@@ -1,6 +1,6 @@
 function fillSettings() {
-  const bootCbx = document.querySelector('#bootSeq').value
-  bootCbx.checked = getCookie('bootSequence')
+  const bootCbx = document.querySelector('#bootSeq')
+  bootCbx.checked = getCookie('bootSequence') === 'true'
 }
 
 function setCookie(name, val) {

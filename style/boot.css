@@ -16,6 +16,7 @@
   color: #fff;
 
   z-index: 25;
+  cursor: wait;
 }
 
 .flex-center-col {

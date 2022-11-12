@@ -51,13 +51,13 @@ async function startBoot() {
   megatrends.appendChild(initialDiv)
   megatrends.style = ''
 
-  await wait(5000)
+  await wait(3000)
 
   // Now remove megatrends stuff
   megatrends.style = 'display: none'
 
   for (const msg of messages) {
-    await wait(rand(200, 800))
+    await wait(rand(100, 800))
 
     await doConsoleMessage(msg)
   }
@@ -94,7 +94,7 @@ async function doConsoleMessage(m) {
     const statusColor = isErr ? 'red' : 'green'
     const appended = consoleContainer.appendChild(message)
 
-    await wait(rand(200, 1000))
+    await wait(rand(200, 800))
 
     // Now append the status
     appended.innerHTML = `${appended.innerHTML} <span class="console_append ${statusColor}">${isErr ? 'ERR' : 'OK'}</span>`

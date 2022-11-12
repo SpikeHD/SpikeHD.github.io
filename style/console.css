@@ -13,6 +13,8 @@
   font-family: 'ClaCon2', 'Consolas', 'Courier New', Courier, monospace;
 
   z-index: 30;
+
+  cursor: wait;
 }
 
 #console .container {
