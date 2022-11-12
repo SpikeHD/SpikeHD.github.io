@@ -68,6 +68,6 @@
   overflow: auto;
   color: #000;
 
-  height: 80%;
+  height: calc(100% - 60px);
   padding: 10px;
 }

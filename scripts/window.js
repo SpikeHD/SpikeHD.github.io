@@ -14,6 +14,7 @@ async function createWindow(name) {
   // If a window already exists with the name, jsut "focus" it
   const existing = document.querySelector(`#window_${name}`)
   if (existing) {
+    // Set other windows to a lesser zindex
     document.querySelectorAll('.window').forEach(e => {
       e.style.zIndex = 998
     })
@@ -26,13 +27,6 @@ async function createWindow(name) {
   windowBase.className = 'window'
   windowBase.id = 'window_' + name
 
-  // Translate to center (or close enough, doesn't really matter) of screen, and make sure z-index is in front
-  const x = Math.round(document.body.clientWidth / 2)
-  const y = Math.round(document.body.clientHeight / 2)
-
-  //windowBase.style.transform = `translate(${x}px, ${y}px)`
-  windowBase.style.left = `${x}px`
-  windowBase.style.top = `${y}px`
   windowBase.style.zIndex = 999
 
   // Set height and width in case some are specified
@@ -49,6 +43,18 @@ async function createWindow(name) {
   // Append title and contents sections
   windowBase.innerHTML = await windowBaseHTML.text()
   windowManager.appendChild(windowBase)
+
+  // Now apply the position based on width and height, since the element needs to be appended in order to get width/height data
+  const x = Math.round(
+    (document.body.clientWidth / 2) - (windowBase.clientWidth / 2)
+  )
+  const y = Math.round(
+    (document.body.clientHeight / 2) - (windowBase.clientHeight / 2)
+  )
+
+  //windowBase.style.transform = `translate(${x}px, ${y}px)`
+  windowBase.style.left = `${x}px`
+  windowBase.style.top = `${y}px`
 
   // There now exists an element with the id of "window_[name]", so we can get it and insert our stuff into the "contents" area
   const windowContents = document.querySelector(`#window_${name} .window_contents`)
