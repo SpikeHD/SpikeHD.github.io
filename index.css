@@ -15,5 +15,5 @@ html {
   overflow: hidden;
   user-select: none;
 
-  position: relative;
+  position: fixed;
 }
