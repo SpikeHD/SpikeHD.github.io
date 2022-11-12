@@ -16,6 +16,9 @@ const messages = [
   'GPU CYCLE check...',
   'Initializing boot partition',
   'Initialized boot partition',
+  'Contemplating what to get for dinner tonight',
+  'Selected: sushi',
+  '===============================<br/>!! SYSTEM OVERHEATING !!<br/><br/>Nahh just kidding lol<br/>===============================',
   'Initializing operating system: ms-spin32-xp',
   'Initialized operating system',
 ]
@@ -54,7 +57,7 @@ async function startBoot() {
 
   await wait(500)
 
-  doConsoleMessage('It\'s time to rock.')
+  doConsoleMessage('Booting up')
 
   // Final wait before sending to "login screen"
   await wait(3000)
