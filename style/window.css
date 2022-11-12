@@ -12,3 +12,54 @@
 
   pointer-events: none;
 }
+
+.window {
+  position: absolute;
+
+  font-family: 'Pixelated MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  color: #fff;
+
+  border: 2px solid #2460de;
+  background-color: #fff;
+
+  width: 400px;
+  height: 300px;
+
+  border-radius: 10px;
+}
+
+.window_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 30px;
+
+  padding: 6px;
+
+  box-sizing: border-box;
+
+  background-color: #2460de;
+}
+
+.window_actions {
+  pointer-events: all;
+  height: 110%;
+}
+
+.window_actions img {
+  height: 100%;
+}
+
+.window_actions img:hover {
+  cursor: pointer;
+}
+
+.window_contents {
+  overflow: auto;
+
+  color: #000;
+}
