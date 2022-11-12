@@ -18,7 +18,7 @@
 
   position: absolute;
   bottom: 0;
-  height: 40px;
+  height: 36px;
   width: 100vw;
 
   background-image: linear-gradient(to top, #2460de, #2257d5);
@@ -46,6 +46,42 @@
 
 #taskbar_icons {
   height: 100%;
+  width: 85%;
+}
+
+#taskbar_controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  height: 100%;
+  width: 20%;
+
+  font-size: 16px;
+
+  color: #fff;
+}
+
+#taskbar_controls div {
+  margin-right: 10px;
+}
+
+#taskbar_sound {
+  height: 50%;
+}
+
+#taskbar_sound img {
+  height: 90%;
+}
+
+#taskbar_wifi {
+  height: 50%;
+}
+
+#taskbar_wifi img {
+  height: 80%;
+  transform: scaleX(-1);
 }
 
 #desktop_icons {
