@@ -114,7 +114,7 @@ async function loadDesktopIcons() {
   const allIcons = document.querySelectorAll('.desktop_icon img')
 
   for (const icon of allIcons) {
-    await wait(rand(100, 500))
+    await wait(rand(100, 300))
 
     const src = icon.getAttribute('data-src')
     icon.src = src
