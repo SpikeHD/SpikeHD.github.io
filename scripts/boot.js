@@ -24,6 +24,16 @@ const messages = [
 ]
 
 document.addEventListener('DOMContentLoaded', async () => {
+  if (getCookie('bootSequence') === 'false') {
+    const console = document.querySelector('#console')
+    const boot = document.querySelector('#boot')
+
+    console.remove()
+    boot.remove()
+
+    return
+  }
+
   await wait(500)
   startBoot()
 })
