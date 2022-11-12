@@ -11,9 +11,18 @@ function assignTitleDraggable(element) {
     const mouseY = evt.clientY
     const dragOffsetX = mouseX - tgtX
     const dragOffsetY = mouseY - tgtY
-    
+
+    // Set all window zIndexes to less than 999
+    document.querySelectorAll('.window').forEach(e => {
+      e.style.zIndex = 998
+    })
+
     // Get the window ancestor
     const windowElm = evt.target.closest('.window')
+
+    // Set this elements z index to 999
+    windowElm.style.zIndex = 999
+
     const drag = (evt) => {
       const newX = evt.clientX - dragOffsetX
       const newY = evt.clientY - dragOffsetY
@@ -22,16 +31,15 @@ function assignTitleDraggable(element) {
       windowElm.style.left = `${newX}px`
       windowElm.style.top = `${newY}px`
     }
-
-    document.addEventListener('mousemove', drag)
-
-    element.addEventListener('mouseup', (evt) => {
-      // Get the window ancestor
-      const windowElm = evt.target.closest('.window')
-  
+    const mouseup = (evt) => {
       // Remove movement event since we have lifted up
       document.removeEventListener('mousemove', drag)
-    })
+      element.removeEventListener('mouseup', mouseup)
+    }
+
+    // Mousemove is added to the document in case the lement can't catch up and the mouse leaves the elemnts zone
+    document.addEventListener('mousemove', drag)
+    element.addEventListener('mouseup', mouseup)
   })
 
 

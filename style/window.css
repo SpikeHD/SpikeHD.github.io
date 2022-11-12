@@ -14,6 +14,8 @@
 }
 
 .window {
+  pointer-events: all;
+
   position: absolute;
 
   font-family: 'Pixelated MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -31,24 +33,27 @@
 
 .window_title {
   pointer-events: all;
-  
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
   width: 100%;
-  height: 30px;
+  height: 40px;
 
-  padding: 6px;
+  padding: 8px;
+
+  /* Pixels stick out if this isn't set, but this is otherwise not visible */
+  border-radius: 4px 4px 0 0;
 
   box-sizing: border-box;
 
-  background-color: #2460de;
+  background-image: linear-gradient(to bottom, #0053ee, #0064fe);
 }
 
 .window_actions {
-  height: 110%;
+  height: 90%;
 }
 
 .window_actions img {
@@ -61,6 +66,8 @@
 
 .window_contents {
   overflow: auto;
-
   color: #000;
+
+  height: 80%;
+  padding: 10px;
 }

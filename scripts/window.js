@@ -11,6 +11,17 @@ async function createWindow(name) {
   // Name may not exist or something
   if (!html) return
 
+  // If a window already exists with the name, jsut "focus" it
+  const existing = document.querySelector(`#window_${name}`)
+  if (existing) {
+    document.querySelectorAll('.window').forEach(e => {
+      e.style.zIndex = 998
+    })
+
+    existing.style.zIndex = 999
+    return
+  }
+
   const windowBase = document.createElement('div')
   windowBase.className = 'window'
   windowBase.id = 'window_' + name
@@ -23,6 +34,17 @@ async function createWindow(name) {
   windowBase.style.left = `${x}px`
   windowBase.style.top = `${y}px`
   windowBase.style.zIndex = 999
+
+  // Set height and width in case some are specified
+  const icon = document.querySelector(`.desktop_icon[name='${name}']`)
+  
+  if (icon.getAttribute('data-window-width')) {
+    windowBase.style.width = `${icon.getAttribute('data-window-width')}px`
+  }
+  
+  if (icon.getAttribute('data-window-height')) {
+    windowBase.style.height = `${icon.getAttribute('data-window-height')}px`
+  }
 
   // Append title and contents sections
   windowBase.innerHTML = await windowBaseHTML.text()
