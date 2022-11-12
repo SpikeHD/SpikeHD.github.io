@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.remove()
     boot.remove()
 
+    loadDesktopIcons()
+
     return
   }
 
@@ -106,6 +108,22 @@ async function doConsoleMessage(m) {
 }
 
 /**
+ * "Load" desktop icons (aka replace default image with their image)
+ */
+async function loadDesktopIcons() {
+  const allIcons = document.querySelectorAll('.desktop_icon img')
+
+  console.log(allIcons)
+
+  for (const icon of allIcons) {
+    await wait(rand(100, 500))
+
+    const src = icon.getAttribute('data-src')
+    icon.src = src
+  }
+}
+
+/**
  * Cleanup sequence, show loading screen briefly, then remove that as well
  */
 async function endBoot() {
@@ -120,6 +138,8 @@ async function endBoot() {
   await wait(5000)
 
   bootElm.remove()
+
+  await loadDesktopIcons()
 }
 
 function wait(ms) {
