@@ -108,7 +108,7 @@
   padding: 6px;
 
   width: 80px;
-  word-wrap: break-word;
+  word-wrap: anywhere;
   text-align: center;
 
   /* Prevents movement when border color is changed */
