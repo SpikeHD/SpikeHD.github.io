@@ -3,6 +3,14 @@
   src: url('./font/clacon2.ttf')
 }
 
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url("./font/ms_sans_serif.woff") format("woff");
+  src: url("./font/ms_sans_serif.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   user-select: none;
 }

@@ -106,8 +106,7 @@ async function endBoot() {
 
   await wait(5000)
 
-  // TODO uncomment when the desktop stuff has been started
-  //bootElm.remove()
+  bootElm.remove()
 }
 
 function wait(ms) {

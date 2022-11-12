@@ -1,0 +1,84 @@
+#desktop {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url('../image/bliss.jpg');
+  background-size: cover;
+}
+
+#taskbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 100vw;
+
+  background-image: linear-gradient(to top, #2460de, #2257d5);
+
+  border-top: 4px solid #408ce5;
+  font-family: 'Pixelated MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#taskbar_start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 100%;
+}
+
+#taskbar_start img {
+  height: 100%;
+}
+
+#taskbar_start img:hover {
+  cursor: pointer;
+}
+
+#taskbar_icons {
+  height: 100%;
+}
+
+#desktop_icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  font-family: 'Pixelated MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.desktop_icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 6px;
+  padding: 6px;
+
+  /* Prevents movement when border color is changed */
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  color: #fff;
+}
+
+.desktop_icon:hover {
+  border: 1px solid #c8c8c8;
+  cursor: pointer;
+}
+
+.desktop_icon img {
+  height: 50px;
+  margin: 10px;
+}
