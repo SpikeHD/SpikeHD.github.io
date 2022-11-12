@@ -1,0 +1,14 @@
+#window_manager {
+  position: absolute;
+  background: transparent;
+
+  top: 0;
+  left: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  z-index: 5;
+
+  pointer-events: none;
+}

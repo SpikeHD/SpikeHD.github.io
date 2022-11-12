@@ -25,6 +25,9 @@
 
   border-top: 4px solid #408ce5;
   font-family: 'Pixelated MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* This must go over the window manager */
+  z-index: 10;
 }
 
 #taskbar_start {
@@ -91,6 +94,8 @@
   align-items: flex-start;
 
   font-family: 'Pixelated MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  z-index: 5;
 }
 
 .desktop_icon {
