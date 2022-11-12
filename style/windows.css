@@ -1,6 +1,9 @@
+/* INFO */
 #info {
   font-family:'Times New Roman', Times, serif
 }
+
+/* DORION */
 
 #window_dorion .window_contents {
   background-color: #36393f;
@@ -38,4 +41,10 @@
   padding: 10px;
   background-color: #26282c;
   border-radius: 6px;
+}
+
+/* THIS GITHUB PAGES SITE */
+
+#github_io {
+  font-family: Tahoma, Geneva, Verdana, sans-serif
 }

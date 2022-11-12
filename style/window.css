@@ -32,6 +32,10 @@
   border-radius: 10px;
 }
 
+.window_title:active:hover {
+  cursor: grab;
+}
+
 .window_title {
   pointer-events: all;
 
