@@ -32,6 +32,8 @@ function mousedown(evt) {
   windowElm.style.zIndex = 999
 
   const drag = (evt) => {
+    evt.preventDefault()
+    
     // Handle touches AND  mouse movement
     const clientX = evt.touches ? evt.touches[evt.touches.length-1].clientX : evt.clientX  
     const clientY = evt.touches ? evt.touches[evt.touches.length-1].clientY : evt.clientY
