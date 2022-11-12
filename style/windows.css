@@ -1,3 +1,41 @@
 #info {
   font-family:'Times New Roman', Times, serif
 }
+
+#window_dorion .window_contents {
+  background-color: #36393f;
+}
+
+#dorion a {
+  color: #5697ff;
+  font-weight: bold;
+}
+
+#dorion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  text-align: center;
+
+  color: #fff;
+}
+
+#dorion_title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#dorion img {
+  width: 100%;
+}
+
+.dorion_img {
+  width: 80%;
+
+  padding: 10px;
+  background-color: #26282c;
+  border-radius: 6px;
+}
