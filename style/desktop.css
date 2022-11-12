@@ -66,6 +66,10 @@
   margin: 6px;
   padding: 6px;
 
+  width: 80px;
+  word-wrap: break-word;
+  text-align: center;
+
   /* Prevents movement when border color is changed */
   border: 1px solid transparent;
   border-radius: 4px;
