@@ -62,21 +62,21 @@
     Technical Nonesense (boring yuck ew)
   </h1>
   <p>
-    A fun quetion I had to answer early on was "how do you calculate the 'darkness' of a pixel?". Googling that now, you will probably just find
-    a StackOverflow answer, but when I was, I couldn't find much. I ended up using this forumala<br/>
+    A fun question I had to answer early on was "how do you calculate the 'darkness' of a pixel?". Googling that now, you will probably just find
+    a StackOverflow answer, but when I was, I couldn't find much for some reason. I ended up using this forumala<br/>
 
     <pre class="code">
-      let brightness = Math.sqrt(
-        (.241 * color.r * color.r) +
-        (.691 * color.g * color.g) +
-        (.068 * color.b * color.b)
-      )
+    const brightness = Math.sqrt(
+      (.241 * color.r * color.r) +
+      (.691 * color.g * color.g) +
+      (.068 * color.b * color.b)
+    )
     </pre>
     that I found in <a target="_blank" href="https://www.nbdtech.com/Blog/archive/2008/04/27/calculating-the-perceived-brightness-of-a-color.aspx">an old blog post from 2008</a>.
     Then, I have an array of symbols that are sorted from most dense to least dense (to simulate "darkness"), and I use the brightness to grab one:
     <pre class="code">
-      const symbols = ['@', '#', '$', '%', ';', ':', '^', '*', ',', '.', '\'', ' ']
-      let symbol = symbols[Math.round(brightness / (255 / (symbols.length-1)))]
+    const symbols = ['@', '#', '$', '%', ';', ':', '^', '*', ',', '.', '\'', ' ']
+    const symbol = symbols[Math.round(brightness / (255 / (symbols.length-1)))]
     </pre>
     This list has some potentially redundant characters (',' and '.' are <i>very</i> similar), so something I often do is change the amount of symbols/which symbols to use depending on the
     color/brightness range of my image, to produce more usable results. That would have made a great CLI/API options, but I did not think of it at the time 😄.
@@ -88,4 +88,12 @@
       (it may say the file is corrupt because it is too large, so you'll have to download the file)
     </p>
   </div>
+  <p>
+    Video processing works basically the same as image processing, where the image will be split into frames, each frame will be processed, and then the frames will
+    be shoved back together as a video. Video audio is preserved as well!
+  </p>
+  <br/>
+  <p>
+    If you would like to take a look at AsciiVert, you can do so <a target="_blank" href="https://github.com/SpikeHD/AsciiVert">here</a>!
+  </p>
 </div>
