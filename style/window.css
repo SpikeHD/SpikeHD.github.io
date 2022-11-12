@@ -30,6 +30,8 @@
 }
 
 .window_title {
+  pointer-events: all;
+  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -46,7 +48,6 @@
 }
 
 .window_actions {
-  pointer-events: all;
   height: 110%;
 }
 

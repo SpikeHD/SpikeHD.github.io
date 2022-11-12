@@ -19,7 +19,9 @@ async function createWindow(name) {
   const x = Math.round(document.body.clientWidth / 2)
   const y = Math.round(document.body.clientHeight / 2)
 
-  windowBase.style.transform = `translate(${x}px, ${y}px)`
+  //windowBase.style.transform = `translate(${x}px, ${y}px)`
+  windowBase.style.left = `${x}px`
+  windowBase.style.top = `${y}px`
   windowBase.style.zIndex = 999
 
   // Append title and contents sections
@@ -31,6 +33,9 @@ async function createWindow(name) {
   const windowTitle = document.querySelector(`#window_${name} .window_title_contents`)
   windowContents.innerHTML = html
   windowTitle.innerHTML = title
+
+  // Make title draggable
+  assignTitleDraggable(document.querySelector(`#window_${name} .window_title`))
 
   // Assign close event to clicking the close button
   const closeBtn = document.querySelector(`#window_${name} .window_actions img`)
