@@ -113,8 +113,6 @@ async function doConsoleMessage(m) {
 async function loadDesktopIcons() {
   const allIcons = document.querySelectorAll('.desktop_icon img')
 
-  console.log(allIcons)
-
   for (const icon of allIcons) {
     await wait(rand(100, 500))
 
