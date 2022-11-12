@@ -23,6 +23,7 @@
   color: #fff;
 
   border: 2px solid #2460de;
+  border-top: 1px solid #1a83fa;
   background-color: #fff;
 
   width: 400px;
@@ -49,7 +50,20 @@
 
   box-sizing: border-box;
 
-  background-image: linear-gradient(to bottom, #0053ee, #0064fe);
+  background-image: linear-gradient(to bottom, #0055e3, #006bff);
+  
+  border-bottom: 2px solid #0055e7;
+}
+
+.window_title_contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.window_title_contents img {
+  margin-right: 8px;
+  height: 20px;
 }
 
 .window_actions {

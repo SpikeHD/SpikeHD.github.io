@@ -6,7 +6,7 @@ async function createWindow(name) {
   const windowManager = document.querySelector('#window_manager')
   const windowBaseHTML = await fetch(`windows/window_base.html`)
   const windowHTML = await fetch(`windows/${name}.html`)
-  const html = await windowHTML?.text()
+  let html = await windowHTML?.text()
 
   // Name may not exist or something
   if (!html) return
@@ -56,11 +56,16 @@ async function createWindow(name) {
   windowBase.style.left = `${x}px`
   windowBase.style.top = `${y}px`
 
+  // Get the image for displaying in the title bar
+  const image = document.querySelector(`.desktop_icon[name='${name}'] img`).getAttribute('src')
+  const newImg = document.createElement('img')
+  newImg.src = image
+
   // There now exists an element with the id of "window_[name]", so we can get it and insert our stuff into the "contents" area
   const windowContents = document.querySelector(`#window_${name} .window_contents`)
   const windowTitle = document.querySelector(`#window_${name} .window_title_contents`)
   windowContents.innerHTML = html
-  windowTitle.innerHTML = title
+  windowTitle.innerHTML = newImg.outerHTML + title
 
   // Make title draggable
   assignTitleDraggable(document.querySelector(`#window_${name} .window_title`))
