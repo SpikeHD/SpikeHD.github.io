@@ -1,6 +1,11 @@
+firstTime()
+
 function fillSettings() {
   const bootCbx = document.querySelector('#bootSeq')
   bootCbx.checked = getCookie('bootSequence') === 'true'
+
+  const iconCbx = document.querySelector('#iconLoad')
+  iconCbx.checked = getCookie('iconLoad') === 'true'
 }
 
 function setCookie(name, val) {
@@ -15,8 +20,20 @@ function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-// Handle settings via cookies
+function firstTime() {
+  if (!getCookie('notnew')) {
+    setCookie('notnew', true)
+    setCookie('bootSequence', true)
+    setCookie('iconLoad', true)
+  }
+}
+
 function toggleIntro() {
   const cbx = document.querySelector('#bootSeq').checked
   setCookie('bootSequence', cbx)
+}
+
+function toggleIconLoading() {
+  const cbx = document.querySelector('#iconLoad').checked
+  setCookie('iconLoad', cbx)
 }

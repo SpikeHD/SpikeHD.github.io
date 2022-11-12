@@ -112,9 +112,10 @@ async function doConsoleMessage(m) {
  */
 async function loadDesktopIcons() {
   const allIcons = document.querySelectorAll('.desktop_icon img')
+  const withEffect = getCookie('iconLoad') === 'true'
 
   for (const icon of allIcons) {
-    await wait(rand(100, 300))
+    if (withEffect) await wait(rand(100, 300))
 
     const src = icon.getAttribute('data-src')
     icon.src = src
