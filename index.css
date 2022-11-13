@@ -11,7 +11,48 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('./font/AmazonEmber_Rg.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('./font/AmazonEmber_RgIt.ttf');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('./font/AmazonEmber_Bd.ttf');
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('./font/AmazonEmber_BdIt.ttf');
+  font-style: italic;
+  font-weight: bold;
+}
+
 html {
   overflow: hidden;
   user-select: none;
+}
+
+.flex-center-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
