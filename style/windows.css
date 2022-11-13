@@ -40,8 +40,117 @@
 
 /* THIS GITHUB PAGES SITE */
 
+#window_spikehd_github_io {
+  color: #fff;
+  background-color: #22272e;
+
+  padding: 0;
+}
+
+#window_spikehd_github_io a {
+  color: #5697ff;
+}
+
+#window_spikehd_github_io .window_contents {
+  padding: 0;
+}
+
 #github_io {
-  font-family: Tahoma, Geneva, Verdana, sans-serif
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  color: #fff;
+}
+
+#github_io_header {
+  justify-content: flex-start;
+
+  padding: 14px;
+
+  background-color: #2d333b;
+}
+
+#github_io_header img {
+  height: 30px;
+  padding-right: 20px;
+}
+
+#github_search {
+  width: 30%;
+}
+
+#github_io_header input {
+  width: 100%;
+
+  padding: 4px;
+  border-radius: 4px;
+
+  background-color: #22272e;
+  border: 1px solid #444c56;
+}
+
+#github_io_header input::placeholder {
+  color: #fff;
+}
+
+#github_io_header span {
+  font-size: 14px;
+  font-weight: 600;
+
+  margin: 0 10px;
+  color: #fff;
+}
+
+#repo_name {
+  font-size: 24px;
+  color: #539bf5;
+
+  padding: 12px;
+}
+
+#repo_readme {
+  margin: 30px;
+  border: 1px solid #444c56;
+  border-radius: 6px;
+}
+
+#readme_before {
+  margin: 30px;
+
+  justify-content: flex-start;
+}
+
+#readme_before span {
+  color: #539bf5;
+}
+
+#repo_filename {
+  font-weight: 600;
+  color: #fff !important;
+} 
+
+#repo_branch {
+  padding: 6px;
+  margin-right: 20px;
+
+  width: 80px;
+  text-align:center;
+
+  background-color: #373e47;
+
+  border: 1px solid rgba(205, 217, 229, 0.1);
+  border-radius: 6px;
+}
+
+#repo_branch img {
+  margin-right: 4px;
+}
+
+#repo_readme_header {
+  background-color: #2d333b;
+  padding: 10px;
+}
+
+#github_io_contents {
+  margin: 20px;
 }
 
 /* ASCIIVERT */
@@ -107,11 +216,6 @@
 }
 
 #amazon_search {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
   width: 50%;
 }
 
