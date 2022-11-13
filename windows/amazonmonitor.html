@@ -12,7 +12,95 @@
   <div id="amazon_contents">
     <p>
       AmazonMonitor is a simple project: it monitors Amazon item stock and prices. It was built in Javascript using
-      <a target="_blank" href="https://github.com/puppeteer/puppeteer">puppeteer</a> and <a target="_blank" href="https://github.com/cheeriojs/cheerio">cheerio</a>
+      <a target="_blank" href="https://github.com/puppeteer/puppeteer">puppeteer</a> and <a target="_blank" href="https://github.com/cheeriojs/cheerio">cheerio</a>.
+      It takes input and display output all through the Discord API!
+    </p>
+    <div class="flex-center-row">
+      <div class="product_card flex-center-col">
+        <div class="amazon_image_container">
+          <img class="product_image" src="./image/screenshots/amazonmonitor/monitor_1.jpg" />
+        </div>
+        <div class="reviews flex-center-row">
+          <img src="./image/5stars.png" />
+          420 reviews
+        </div>
+        <span>First, send the command to add an item to the watchlist...</span>
+      </div>
+      <div class="product_card flex-center-col">
+        <div class="amazon_image_container">
+          <img class="product_image" src="./image/screenshots/amazonmonitor/monitor_3.jpg" />
+        </div>
+        <div class="reviews flex-center-row">
+          <img src="./image/5stars.png" />
+          5,432 reviews
+        </div>
+        <span>...then, when the stock/price of something changes, you'll know!</span>
+      </div>
+    </div>
+    <p>
+      Creating a price monitor for a large website presents some challenges. They, of course, do not really want people scraping their site, and suggest using their
+      <a target="_blank" href="https://webservices.amazon.com/paapi5/documentation/">Products API</a> instead. An y'know what, that is <i>totally fair</i>.
+      This project wasn't really meant for any widespread attention or usage anyways. Rather, I wanted to experiment with getting around barriers that popular sites,
+      such as Amazon, impose to prevent this sort of thing. "Nothing is unhackable" and all that, not that any of this is hacking in any capacity.
+    </p>
+    <p>
+      Since this project, I have actually made a <i>bunch</i> of price monitors for various websites. They are all private as they were commissions, but apparently
+      there is a market for that kinda thing. Who knew!
+    </p>
+    <div class="flex-center-row">
+      <div class="product_card flex-center-col">
+        <div class="amazon_image_container">
+          <img class="product_image" src="./image/screenshots/amazonmonitor/monitor_2.jpg" />
+        </div>
+        <div class="reviews flex-center-row">
+          <img src="./image/5stars.png" />
+          69 reviews
+        </div>
+        <span>You can also get scraped product information straight from a command!</span>
+      </div>
+    </div>
+    <h1>Technical Stuff (ew gross yunky crunky)</h1>
+    <p>
+      The program flow works like this:
+      <ul>
+        <li>Use <pre>puppeteer</pre> to grab the contents of a product page</li>
+        <li>Scour the contents of the page (which is just raw HTML) with <pre>cheerio</pre> for all our relevant information</li>
+        <li>Organize all of that data into a nice JavaScript object, which is used and passed around wherever it needs to be</li>
+      </ul>
+      Because of the Discord API aspect being almost entirely decoupled from the scraper aspect, this could very easily
+      be repurposed into some other medium. I just haven't done it yet :P
+    </p>
+    <h2>Preventing Being Flagged</h2>
+    <p>
+      The most overwhelmingly prevalent concern when creating a project like this is <b>getting flagged</b> <i>(gasp!)</i>. Thankfully, "getting flagged" in this case
+      just means your IP being told to shut the **** up and stop pestering Amazon for a little while. When this happens, pages will start redirecting you
+      to a Captcha page instead. Not much of a way around that.
+    </p>
+    <p>
+      So, to prevent this, a few tactics are employed:
+      <ul>
+        <li>
+          <b>Using <pre>puppeteer</pre>.</b> This is a headless browser, which looks very much like a real one to most websites. Combined with some launch settings
+          and user-agent stuff, you can look pretty convincing to an unsuspecting site.
+        </li>
+        <li>
+          <b>Proxying.</b> Optionally, a list of proxies can be provided, in which each request made by the headless browser will use a random one, making
+          you <i>very hard</i> to track down.
+        </li>
+        <li>
+          <b>Being nice.</b> Amazon doesn't want you doing this, which I get, so AmazonMonitor cuts them a bit of slack and defaults to making requests every few minutes, rather
+          than seconds.
+        </li>
+      </ul>
+    </p>
+    <h2>Other Features</h2>
+    <p>
+      AmazonMonitor can also view search queries. You pass a query, such as "iphone" or "bath bomb", and the results of that query will be scraped and cached.
+      Then, during the monitors periodic check, it will run that search query again, and compare the current results to it's cache. Anything that has gone down
+      will be pushed as a notification, just like a regular item!
+    </p>
+    <p>
+      If you'd like to take a look at AmazonMonitor, you can do so <a target="_blank" href="https://github.com/SpikeHD/AmazonMonitor">here!</a>
     </p>
   </div>
 </div>
