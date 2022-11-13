@@ -51,6 +51,10 @@
   color: #5697ff;
 }
 
+#window_spikehd_github_io pre {
+  margin: 4px;
+}
+
 #window_spikehd_github_io .window_contents {
   padding: 0;
 }
