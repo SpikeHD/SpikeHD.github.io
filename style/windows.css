@@ -9,6 +9,11 @@
   background-color: #36393f;
 }
 
+#dorion pre {
+  margin: 0;
+  display: inline-block;
+}
+
 #dorion a {
   color: #5697ff;
   font-weight: bold;
