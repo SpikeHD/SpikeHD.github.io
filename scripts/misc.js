@@ -15,8 +15,11 @@ Technical Information:<br/><br/>
 
 ••• STOP: 0x0000005A (0x00000001, 0x00000000, 0x00000000)<br/><br/>
 
-Collecting data for crash dump . . . Initializing disk for crash dump . . . Beginning dump for physical memory.
-Dumping physical memory to disk: 100 Physical memory dump complete.<br/><br/>
+Collecting data for crash dump . . .<br/>
+Initializing disk for crash dump . . .<br/>
+Beginning dump for physical memory.<br/>
+Dumping physical memory to disk: 100<br/>
+Physical memory dump complete.<br/><br/>
 
 <b>$BSOD_FOOTER</b>`
 const clock = document.querySelector('#taskbar_time')
