@@ -5,7 +5,8 @@
   </div>
   <p>
     Dorion was a project I created to leverage the pre-installation of <a target="_blank" href="https://learn.microsoft.com/en-us/windows/apps/design/controls/web-view">WebView2</a>
-    on Windows 11 and updated Windows 10 machines to create a smaller Discord binary. The project also supports themes and plugins!
+    on Windows 11 and updated Windows 10 machines to create a smaller Discord binary. The backend is written in Rust and the "frontend" (which is basically
+    just a settings menu and splash screen) is written in pure HTML/CSS/JS. The project also supports themes and plugins!
   </p>
   <div class="dorion_img">
     <img src="./image/screenshots/dorion/dorion_2.jpg" />
@@ -13,7 +14,8 @@
   </div>
   <p>
     The original intention was to simply display the Discord web app using <a target="_blank" href="https://tauri.app/">Tauri</a>, a desktop application framework that
-    is designed to allow creating web-based frontends and applications with Rust backends. Using Tauri, I was able to create a binary that was only ~7mb! (That is much better than the ~70mb of the Discord client)
+    is designed to allow creating web-based frontends and applications with Rust backends. Using Tauri, I was able to create a binary that was only ~7mb! (That is 
+    much better than the ~70mb of the Discord client)
   </p>
   <p>
     Quickly though, the scope of Dorion evolved. I learned that <a target="_blank" href="https://betterdiscord.app/themes">BetterDiscord themes</a> were also applicable to
@@ -24,7 +26,13 @@
     Dorion with a theme applied!
   </div>
   <p>
-    So now, Dorion is a cross-platform project that supports themes, <i>including BetterDiscord themes</i>, and plugins (NOT including BetterDiscord plugins)! Because of the
+    ... I needed to overcomplicate yet another project. So I did! In the Rust backend, I wrote functions that inject CSS and JavaScript, which was actually relatively easy.
+    I then had to create a CSS preparser, as themes that used CSS "url()"s would fail due to CORS on the Discord site. This preparser would find all url-based imports
+    within the CSS, which includes other CSS files (which are just appended to the main CSS string that is injected), as well as images (which are downloaded and
+    inserted as raw Base64). Doing this creates a small startup delay, but it's nothing unbearable.
+  </p>
+  <p>
+    So with all that having been done, Dorion is now a cross-platform project that supports themes, <i>including BetterDiscord themes</i>, and plugins (NOT including BetterDiscord plugins)! Because of the
     added complexity, I was also able to learn more Rust, which is becoming one of my favorite languages, as well as Javascript/CSS injection, which was really fun to learn!
   </p>
   <p>
