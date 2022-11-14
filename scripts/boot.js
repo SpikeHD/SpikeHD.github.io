@@ -56,7 +56,7 @@ async function startBoot() {
 
   initialDiv.innerHTML = initialMessage
   initialDiv.className = ''
-  megatrends.appendChild(initialDiv)
+  const appended = megatrends.appendChild(initialDiv)
   megatrends.style = ''
 
   await wait(3000)
@@ -80,6 +80,10 @@ async function startBoot() {
   // Final wait before sending to "login screen"
   await wait(3000)
 
+  appended.remove()
+  const consoleContainer = document.querySelector('#console_messages')
+  consoleContainer.innerHTML = ''
+
   await endBoot()
 }
 
@@ -90,7 +94,7 @@ async function startBoot() {
  * @returns 
  */
 async function doConsoleMessage(m) {
-  const consoleContainer = document.querySelector('#console .container')
+  const consoleContainer = document.querySelector('#console_messages')
   const message = document.createElement('div')
 
   message.className = 'message'
@@ -134,9 +138,8 @@ async function loadDesktopIcons() {
 async function endBoot() {
   const consoleElm = document.querySelector('#console')
   const bootElm = document.querySelector('#boot')
-  consoleElm.innerHTML = ''
 
-  await wait(1000)
+  await blackscreen(1000)
 
   consoleElm.style.display = 'none'
 
