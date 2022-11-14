@@ -44,13 +44,49 @@
 }
 
 /* SOLUTIONS */
+#window_solutions .window_contents {
+  margin: 40px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+#window_solutions {
+  margin: 40px;
+  background: linear-gradient(to bottom, red, orange, cyan, blue, violet);
+}
+
 #solutions {
+  background-color: #fff;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
 }
 
+#solutions img  {
+  width: 50%;
+}
+
+#solutions a {
+  animation: RBBlink 1s infinite;
+}
+
+@keyframes RBBlink {
+  0% {
+    color: rgb(255, 0, 0);
+  }
+  50% {
+    color: rgb(0, 0, 255);
+  }
+  100% {
+    color: rgb(0, 255, 0);
+  }
+}
+
 #solutions a:hover {
   cursor: pointer;
+}
+
+#solution_contents {
+  padding: 20px;
 }
 
 /* THIS GITHUB PAGES SITE */
