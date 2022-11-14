@@ -38,6 +38,16 @@
   border-radius: 6px;
 }
 
+/* SOLUTIONS */
+#solutions {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+#solutions a:hover {
+  cursor: pointer;
+}
+
 /* THIS GITHUB PAGES SITE */
 
 #window_spikehd_github_io {
@@ -57,6 +67,10 @@
 
 #window_spikehd_github_io .window_contents {
   padding: 0;
+}
+
+#solutions_link:hover {
+  cursor: pointer;
 }
 
 #github_io {

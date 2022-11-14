@@ -32,12 +32,14 @@ async function createWindow(name) {
   // Set height and width in case some are specified
   const icon = document.querySelector(`.desktop_icon[name='${name}']`)
   
-  if (icon.getAttribute('data-window-width')) {
-    windowBase.style.width = `${icon.getAttribute('data-window-width')}px`
-  }
-  
-  if (icon.getAttribute('data-window-height')) {
-    windowBase.style.height = `${icon.getAttribute('data-window-height')}px`
+  if (icon) {
+    if (icon.getAttribute('data-window-width')) {
+      windowBase.style.width = `${icon.getAttribute('data-window-width')}px`
+    }
+    
+    if (icon.getAttribute('data-window-height')) {
+      windowBase.style.height = `${icon.getAttribute('data-window-height')}px`
+    }
   }
 
   // Append title and contents sections
@@ -57,7 +59,7 @@ async function createWindow(name) {
   windowBase.style.top = `${y}px`
 
   // Get the image for displaying in the title bar
-  const image = document.querySelector(`.desktop_icon[name='${name}'] img`).getAttribute('src')
+  const image = document.querySelector(`.desktop_icon[name='${name}'] img`)?.getAttribute('data-src') || './image/desktop/win_xp_default.png'
   const newImg = document.createElement('img')
   newImg.src = image
 

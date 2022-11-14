@@ -25,11 +25,11 @@ const messages = [
 
 document.addEventListener('DOMContentLoaded', async () => {
   if (getCookie('bootSequence') === 'false') {
-    const console = document.querySelector('#console')
-    const boot = document.querySelector('#boot')
+    const consoleElm = document.querySelector('#console')
+    const bootElm = document.querySelector('#boot')
 
-    console.remove()
-    boot.remove()
+    consoleElm.style.display = 'none'
+    bootElm.style.display = 'none'
 
     loadDesktopIcons()
 
@@ -44,6 +44,12 @@ document.addEventListener('DOMContentLoaded', async () => {
  * Main boot effect stuff
  */
 async function startBoot() {
+  const consoleElm = document.querySelector('#console')
+  const bootElm = document.querySelector('#boot')
+
+  consoleElm.style.display = 'block'
+  bootElm.style.display = 'block'
+
   // First show Canadian Megatrends stuff
   const megatrends = document.querySelector('#console .container #megatrends')
   const initialDiv = document.createElement('div')
@@ -132,19 +138,11 @@ async function endBoot() {
 
   await wait(1000)
 
-  consoleElm.remove()
+  consoleElm.style.display = 'none'
 
   await wait(5000)
 
-  bootElm.remove()
+  bootElm.style.display = 'none'
 
   await loadDesktopIcons()
-}
-
-function wait(ms) {
-  return new Promise((r) => setTimeout(r, ms))
-}
-
-function rand(min, max) {
-  return Math.floor(Math.random() * (max-min)) + min
 }
