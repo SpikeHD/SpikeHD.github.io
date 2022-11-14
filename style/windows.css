@@ -337,3 +337,22 @@
 }
 
 /* SLOTH */
+#sloth pre {
+  margin: 0;
+  display: inline-block;
+}
+
+#sloth {
+
+}
+
+.sloth_image_section {
+  width: 90%;
+  padding: 10px;
+
+  border: 1px solid #000;
+}
+
+.sloth_image_section img {
+  width: 80%;
+}

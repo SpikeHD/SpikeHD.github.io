@@ -1,4 +1,4 @@
-<dic id="sloth">
+<div id="sloth" class="flex-center-col">
   <div id="sloth_header"></div>
   <div id="sloth_content">
     <p>
@@ -9,30 +9,30 @@
       A simple example of using the Profiler.
     </div>
     <h1>How it works</h1>
-    <p>
+    <div>
       Sloth has three main components:
       <ul>
         <li><pre>Profiler</pre></li>
         <li><pre>bench()</pre></li>
         <li><pre>benchFile()</pre></li>
       </ul>
-    </p>
+    <div>
     <h2>Profiler</h2>
-    <p>
-      The <pre>Profiler</pre> class is the backbone of Sloth. It can be used just by itself, by creating an instance, and then calling the <pre>start()</pre>
+    <div>
+      The Profiler class is the backbone of Sloth. It can be used just by itself, by creating an instance, and then calling the <pre>start()</pre>
       and <pre>end()</pre> methods. It utilizes <pre>child_process</pre>, which creates a "watcher" process, in order to properly keep track of process usage
       independant of what script it was called within! This prevents muddying results with the Profilers memory footprint.<br/>
 
       <pre>Profiler.end()</pre> returns an instance of <pre>ProfilerResults</pre>, which is used for getting memory usage, averages, and creating graphs and snapshots
-    </p>
+    </div>
     <h2>bench()</h2>
-    <p>
+    <div>
       The bench function takes in a function, shoves it into an isolated <pre>child_process</pre>, creates a <pre>Profiler</pre> that watches that PID,
       runs ths functions, and finally returns the results of <pre>Profiler.end()</pre>.
-    </p>
+    </div>
     <div class="sloth_image_section flex-center-col">
       <img src="./image/screenshots/sloth/sloth_2.png" />
       Using the bench() function. You can even pass values to the function arguments!
     </div>
   </div>
-</dic>
+</div>
