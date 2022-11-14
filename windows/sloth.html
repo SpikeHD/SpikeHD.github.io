@@ -1,9 +1,9 @@
 <div id="sloth" class="flex-center-col">
   <div id="sloth_header"></div>
-  <div id="sloth_content">
-    <p>
+  <div id="sloth_content" class="flex-center-col">
+    <div>
       Sloth is a performance profiling Node.js library written in TypeScript. It was created during my time at <a href="https://www.acromedia.com/">AcroMedia</a>.
-    </p>
+    </div>
     <div class="sloth_image_section flex-center-col">
       <img src="./image/screenshots/sloth/sloth_1.png" />
       A simple example of using the Profiler.
@@ -16,12 +16,12 @@
         <li><pre>bench()</pre></li>
         <li><pre>benchFile()</pre></li>
       </ul>
-    <div>
+    </div>
     <h2>Profiler</h2>
     <div>
       The Profiler class is the backbone of Sloth. It can be used just by itself, by creating an instance, and then calling the <pre>start()</pre>
       and <pre>end()</pre> methods. It utilizes <pre>child_process</pre>, which creates a "watcher" process, in order to properly keep track of process usage
-      independant of what script it was called within! This prevents muddying results with the Profilers memory footprint.<br/>
+      independant of what script it was called within! This prevents muddying results with the Profilers memory footprint.<br/><br/>
 
       <pre>Profiler.end()</pre> returns an instance of <pre>ProfilerResults</pre>, which is used for getting memory usage, averages, and creating graphs and snapshots
     </div>
@@ -34,5 +34,27 @@
       <img src="./image/screenshots/sloth/sloth_2.png" />
       Using the bench() function. You can even pass values to the function arguments!
     </div>
+    <div>
+      So how does it work? Node.js doesn't exactly just <i>let</i> pass a function into a seperate process, so I had to get <i>super</i> creative.
+      Basically, Sloth takes the function as a parameter, converts it to a string (in JavaScript, you can just do <pre>String(myFunction)</pre>!), does
+      does some string manipulation (expanded on below), and passes that function string to the child process! That child process, after recieving the 
+      function string, converts it BACK to an actual function (<pre>Function(myFunctionString)</pre>, JS is weeeeird), and then runs it.
+    </div>
+    <h3>Function String Manipulation</h3>
+    <div>
+      To handle running the function in its own process, the functions content/body is extracted and sent to the child process.
+    </div>
+    <pre class="code">
+      /* This function declaration is stripped away, including the { } */
+      function myFn() {
+        /* ...BUT the inner body of the function will remain! */
+        console.log("Test")
+      }
+      /* Therefore, the string passed to the child process will just be: */
+      console.log("Test")
+    </pre>
+    <div>
+
+    </div>  
   </div>
 </div>
