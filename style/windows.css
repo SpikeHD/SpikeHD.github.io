@@ -19,6 +19,10 @@
   font-weight: bold;
 }
 
+#dorion div {
+  margin: 10px;
+}
+
 #dorion {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   text-align: center;
@@ -383,7 +387,7 @@
 }
 
 #sloth {
-
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .sloth_image_section {
@@ -397,4 +401,13 @@
 
 .sloth_image_section img {
   width: 80%;
+}
+
+#sloth .code {
+  text-align: left;
+  background: #ddd;
+
+  padding: 6px;
+  margin: 10px;
+  border-radius: 6px;
 }

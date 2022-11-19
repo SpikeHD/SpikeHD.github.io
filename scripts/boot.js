@@ -1,10 +1,10 @@
-const initialMessage = `SPIKEBIOS (C) 2003 Canadian Megatrends, Inc. <br/>
-ASUS P3N15 ACPI BIOS Revision 1337 <br/>
-CPU: INTEL (R) Core(TM) i3-530 CPU 2.93GHz <br/>
-\tSpeed: 2.90 GHz <br/><br/>
+const initialMessage = `SPIKEBIOS (C) 2003 Canadian Megatrends, Inc. <br>
+ASUS P3N15 ACPI BIOS Revision 1337 <br>
+CPU: INTEL (R) Core(TM) i3-530 CPU 2.93GHz <br>
+\tSpeed: 2.90 GHz <br><br>
 
-Press DEL to do Nothing <br/>
-Press F8 for NO POPUP <br/>
+Press DEL to do Nothing <br>
+Press F8 for NO POPUP <br>
 `
 const messages = [
   'Booting from hard disk: DISK0',
@@ -18,7 +18,7 @@ const messages = [
   'Initialized boot partition',
   'Contemplating what to get for dinner tonight',
   'Selected: sushi',
-  '===============================<br/>!! SYSTEM OVERHEATING !!<br/><br/>Nahh just kidding lol<br/>===============================',
+  '===============================<br>!! SYSTEM OVERHEATING !!<br><br>Nahh just kidding lol<br>===============================',
   'Initializing operating system: ms-spin32-xp',
   'Initialized operating system',
 ]
