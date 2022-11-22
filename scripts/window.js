@@ -80,6 +80,79 @@ async function createWindow(name) {
   })
 }
 
+/**
+ * Similar to createWindow, but a more locked-down small dialog
+ * 
+ * @param {String} name 
+ * @param {String} contents 
+ */
+async function createDialog(name, heading, contents) {
+  const windowManager = document.querySelector('#window_manager')
+  const windowBaseHTML = await fetch(`windows/window_base.html`)
+  const windowHTML = await fetch(`windows/dialog.html`)
+  let html = await windowHTML?.text()
+
+  // Name may not exist or something
+  if (!html) return
+
+  const id = 'window_' + name + Math.floor(Math.random() * 9999999)
+  const windowBase = document.createElement('div')
+  windowBase.className = 'window'
+  windowBase.id = id
+
+  windowBase.style.zIndex = 999
+  windowBase.style.width = '500px'
+  windowBase.style.height = '200px'
+
+  // Append title and contents sections
+  windowBase.innerHTML = await windowBaseHTML.text()
+  windowManager.appendChild(windowBase)
+
+  // Now apply the position based on width and height, since the element needs to be appended in order to get width/height data
+  const x = Math.round(
+    (document.body.clientWidth / 2) - (windowBase.clientWidth / 2)
+  )
+  const y = Math.round(
+    (document.body.clientHeight / 2) - (windowBase.clientHeight / 2)
+  )
+
+  //windowBase.style.transform = `translate(${x}px, ${y}px)`
+  windowBase.style.left = `${x}px`
+  windowBase.style.top = `${y}px`
+
+  // Get the image for displaying in the title bar
+  const image = './image/desktop/win_xp_default.png'
+  const newImg = document.createElement('img')
+  newImg.src = image
+
+  // There now exists an element with the id of "window_[name]", so we can get it and insert our stuff into the "contents" area
+  const windowContents = document.querySelector(`#${id} .window_contents`)
+  const windowTitle = document.querySelector(`#${id} .window_title_contents`)
+  windowContents.innerHTML = html
+  windowTitle.innerHTML = newImg.outerHTML + name
+
+  // Make title draggable
+  assignTitleDraggable(document.querySelector(`#${id} .window_title`))
+
+  // Set inner heading and content
+  document.querySelector(`#${id} .diag-header`).innerHTML = heading
+  document.querySelector(`#${id} .diag-contents`).innerHTML = contents
+
+  // Assign close event to clicking the close button
+  const closeBtn = document.querySelector(`#${id} .window_actions img`)
+  closeBtn.addEventListener('click', () => {
+    const window = document.querySelector(`#${id}`)
+    window.remove()
+  })
+
+  // Assign close event to Ok button as well
+  const okBtn = document.querySelector(`#${id} .diag-ok`)
+  okBtn.addEventListener('click', () => {
+    const window = document.querySelector(`#${id}`)
+    window.remove()
+  })
+}
+
 function getNiceName(name) {
   let noUnder = name.replace(/_/g, ' ')
   return noUnder[0].toUpperCase() + noUnder.substring(1)

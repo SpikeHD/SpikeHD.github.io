@@ -1,3 +1,33 @@
+/* DIALOG WINDOWS */
+
+/*
+ * This is yoinked from https://codepen.io/jo_Geek/pen/eBYQqX
+ */
+.dialog[class*='window_Information'] {
+  background-color: rgb(221, 221, 221);
+}
+
+.dialog button {
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #848484;
+  border-bottom: 1px solid #848484;
+  background-color: transparent;
+  padding: 3px 15px 3px 15px;
+}
+
+.dialog button:hover,
+.dialog button:focus {
+  outline: 0;
+}
+
+.dialog button:active {
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #848484;
+  border-top: 1px solid #848484;
+}
+
 /* INFO */
 #info {
   font-family:'Times New Roman', Times, serif
