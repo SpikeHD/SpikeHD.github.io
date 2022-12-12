@@ -441,3 +441,63 @@
   margin: 10px;
   border-radius: 6px;
 }
+
+/* NDS PONG */
+#window_nds_pong {
+  background-color: #202020;
+}
+
+#window_nds_pong .window_contents {
+  padding: 0px;
+}
+
+.nds_container {
+  height: 100%;
+}
+
+.nds_screen {
+  height: 80%;
+  width: 50%;
+  
+  border-style: outset;
+  border-color: #363636;
+  border-width: 10px;
+
+  padding: 4px;
+
+  background-color: white;
+
+  text-align: center;
+
+  font-size: 20px;
+  font-family: "Pixelated MS Sans Serif";
+
+  overflow: auto;
+}
+
+.ds_icon {
+  filter: invert(18%) sepia(0%) saturate(0%) hue-rotate(134deg) brightness(103%) contrast(92%);
+
+  position: absolute;
+
+  height: 180px;
+}
+
+.ds_icon img {
+  height: 100%;
+}
+
+.nds_left {
+  top: 30%;
+  left: 0;
+}
+
+.nds_right {
+  top: 30%;
+  right: 0;
+}
+
+.nds_screen_image {
+  width: 80%;
+  border: 2px solid #000;
+}
