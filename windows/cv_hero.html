@@ -1,0 +1,43 @@
+<div class="cv_main">
+  <div class="cv_menumain">
+    <div class="cv_titlebar">
+      Overview
+    </div>
+    <div class="cv_menubar">
+      CVHero as a concept is super simple, it uses OpenCV to detect notes while a song plays, and it automatically emulates
+      keypresses when knows which notes are on screen!
+    </div>
+    <div class="cv_menubar">
+      It is written in pure C++, using only the OpenCV library, and Input_Lite
+    </div>
+    <div class="cv_titlebar">
+      Technical Stuff
+    </div>
+    <div class="cv_menubar">
+      The specific implementation uses "template matching", which takes a template image, like an image of a note,
+      and checks to see if there are instances of that template within the image
+    </div>
+    <div class="cv_menubar">
+      Obviously a detection cannot be perfect, so it has a "confidence" threshold it uses to determine what is and isn't a note
+    </div>
+    <div class="cv_menubar">
+      It uses the Template Matching Correlation method (internally known as TM_CCORR_NORMED)
+    </div>
+    <div class="cv_titlebar">
+      Other Notes
+    </div>
+    <div class="cv_menubar">
+      This project took less than a week to complete, only works on Linux, and I made a <a href="https://youtu.be/j-SIuTV7p50">cool video</a> about the process!
+    </div>
+    <div class="cv_menubar">
+      You can view the source code <a href="https://github.com/SpikeHD/CVHero">here!</a>
+    </div>
+  </div>
+
+  <div class="cv_song">
+    <img src="./image/cvhero.gif">
+    <div>
+      Short gif example of CVHero working!
+    </div>
+  </div>
+</div>
