@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./style/desktop.css" />
     <link rel="stylesheet" href="./style/window.css" />
     <link rel="stylesheet" href="./style/windows.css" />
+    <link rel="stylesheet" href="./style/special.css" />
     <link rel="stylesheet" href="./style/bsod.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,6 +60,8 @@
         </div>
       </div>
     </div>
+
+    <div id="darkenOverlay"></div>
 
     <!-- Main "Desktop" -->
     <div id="desktop">
@@ -114,6 +117,11 @@
           <img src="image/desktop/win_xp_default.png" data-src="./image/desktop/cv_hero.png" />
           <span>CVHero</span>
         </div>
+
+        <div class="desktop_icon bottom_right" name="fark_souls" data-window-height="800" data-window-width="400" onclick="beginBossBattle()">
+          <img src="image/desktop/win_xp_default.png" data-src="./image/desktop/bonfire.png" />
+          <span>Fark Souls</span>
+        </div>
       </div>
 
       <div id="taskbar">
@@ -146,3 +154,4 @@
 <script src="./scripts/window.js"></script>
 <script src="./scripts/desktop.js"></script>
 <script src="./scripts/experience.js"></script>
+<script src="./scripts/boss.js"></script>

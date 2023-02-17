@@ -1,11 +1,11 @@
 /**
  * Create a window based on name, using HTML in ./windows (which contains the inner HTML of windows to be displayed)
  */
-async function createWindow(name) {
+async function createWindow(name, path = '', dimensions = null) {
   const title = getNiceName(name)
   const windowManager = document.querySelector('#window_manager')
   const windowBaseHTML = await fetch(`windows/window_base.html`)
-  const windowHTML = await fetch(`windows/${name}.html`)
+  const windowHTML = await fetch(path || `windows/${name}.html`)
   let html = await windowHTML?.text()
 
   // Name may not exist or something
@@ -40,6 +40,12 @@ async function createWindow(name) {
     if (icon.getAttribute('data-window-height')) {
       windowBase.style.height = `${icon.getAttribute('data-window-height')}px`
     }
+  }
+
+  // If dimensions are specified, use those instead
+  if (dimensions) {
+    windowBase.style.width = `${dimensions.width}`
+    windowBase.style.height = `${dimensions.height}`
   }
 
   // Append title and contents sections
