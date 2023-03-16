@@ -29,8 +29,11 @@
     ... I needed to overcomplicate yet another project. So I did! In the Rust backend, I wrote functions that inject CSS and JavaScript, which was actually relatively easy.
     I then had to create a CSS preparser, as themes that used CSS <pre>url()</pre>s would fail due to CORS on the Discord site. This preparser would find all <pre>url()</pre>-based imports
     within the CSS, which includes other CSS files (which are just appended to the main CSS string that is injected), as well as images (which are downloaded and
-    inserted as raw Base64). Doing this creates a small startup delay, but it's nothing unbearable.
+    inserted as raw Base64).
   </div>
+  <p>
+    Before v0.4.0, this would create a small startup delay. Recently though, I rewrote part of Dorion to load <i>as the regular client loads, asynchronously</i>.
+  </p>
   <p>
     So with all that having been done, Dorion is now a cross-platform project that supports themes, <i>including BetterDiscord themes</i>, and plugins (NOT including BetterDiscord plugins)! Because of the
     added complexity, I was also able to learn more Rust, which is becoming one of my favorite languages, as well as Javascript/CSS injection, which was really fun to learn!

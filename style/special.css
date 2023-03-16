@@ -1,0 +1,104 @@
+/**
+ * This file mostly contains CSS for easter eggs and such. It's gonna be super messy.
+ * I'm sorry.
+ *
+ * (Not really)
+ */
+#darkenOverlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgb(0,0,0);
+  z-index: 100;
+
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.overlayShow {
+  opacity: 0.6 !important;
+}
+
+.bottom_right {
+  position: absolute;
+  bottom: 5%;
+  right: 0;
+}
+
+#window_player .window_contents img {
+  height: 100%;
+  width: 100%;
+}
+
+#window_player .window_contents {
+  margin: 0;
+  padding: 0;
+}
+
+#window_enemy .window_contents img {
+  height: 100%;
+  width: 100%;
+}
+
+#window_enemy .window_contents {
+  margin: 0;
+  padding: 0;
+}
+
+/* Scuffed styling pls ignore */
+#window_health .window_contents {
+  margin: 0;
+  padding: 0;
+  height: 67%;
+  background: #1c211d;
+  border-radius: 0 0 6px 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#health_bar {
+  width: 95%;
+  height: 20%;
+
+  border-style: outset;
+  border-width: 2px;
+  border-color: #000;
+}
+
+#health_bar_inner {
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(to bottom, #794849, #2b0404, #2b0404, #2b0404, #2c0402);
+}
+
+.health_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Optimus Princeps'
+}
+
+.health_stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 20%;
+  width: 90%;
+  color: #fff;
+}

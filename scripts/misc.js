@@ -1,25 +1,25 @@
 const bsodTemplate = `
-A problem has been detected Windows has been shut down to prevent damage to your computer.<br/><br/>
+A problem has been detected Windows has been shut down to prevent damage to your computer.<br><br>
 
-$BSOD_MESSAGE<br/><br/>
+$BSOD_MESSAGE<br><br>
 
-Your computer will restart in a moment. If this screen appears again, follow these steps:<br/><br/>
+Your computer will restart in a moment. If this screen appears again, follow these steps:<br><br>
 
 Check to make sure any new hardware or software is properly installed.
-If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.<br/><br/>
+If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.<br><br>
 
 If problems continue, disable or remove any newly installed hardware or software. Disable BIOS memory options such as caching or shadowing.
-If you need to use safe more to disable or remove components, restart your computer, press F8 to select Advanced Startup Options, and then select Safe Mode.<br/><br/>
+If you need to use safe more to disable or remove components, restart your computer, press F8 to select Advanced Startup Options, and then select Safe Mode.<br><br>
 
-Technical Information:<br/><br/>
+Technical Information:<br><br>
 
-••• STOP: 0x0000005A (0x00000001, 0x00000000, 0x00000000)<br/><br/>
+••• STOP: 0x0000005A (0x00000001, 0x00000000, 0x00000000)<br><br>
 
-Collecting data for crash dump . . .<br/>
-Initializing disk for crash dump . . .<br/>
-Beginning dump for physical memory.<br/>
-Dumping physical memory to disk: 100<br/>
-Physical memory dump complete.<br/><br/>
+Collecting data for crash dump . . .<br>
+Initializing disk for crash dump . . .<br>
+Beginning dump for physical memory.<br>
+Dumping physical memory to disk: 100<br>
+Physical memory dump complete.<br><br>
 
 <b>$BSOD_FOOTER</b>`
 const clock = document.querySelector('#taskbar_time')

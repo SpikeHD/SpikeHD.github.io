@@ -21,7 +21,7 @@
     <div>
       The Profiler class is the backbone of Sloth. It can be used just by itself, by creating an instance, and then calling the <pre>start()</pre>
       and <pre>end()</pre> methods. It utilizes <pre>child_process</pre>, which creates a "watcher" process, in order to properly keep track of process usage
-      independant of what script it was called within! This prevents muddying results with the Profilers memory footprint.<br/><br/>
+      independant of what script it was called within! This prevents muddying results with the Profilers memory footprint.<br><br>
 
       <pre>Profiler.end()</pre> returns an instance of <pre>ProfilerResults</pre>, which is used for getting memory usage, averages, and creating graphs and snapshots
     </div>
@@ -36,25 +36,36 @@
     </div>
     <div>
       So how does it work? Node.js doesn't exactly just <i>let</i> pass a function into a seperate process, so I had to get <i>super</i> creative.
+      <br><br>
       Basically, Sloth takes the function as a parameter, converts it to a string (in JavaScript, you can just do <pre>String(myFunction)</pre>!), does
       does some string manipulation (expanded on below), and passes that function string to the child process! That child process, after recieving the 
       function string, converts it BACK to an actual function (<pre>Function(myFunctionString)</pre>, JS is weeeeird), and then runs it.
     </div>
     <h3>Function String Manipulation</h3>
     <div>
-      To handle running the function in its own process, the functions content/body is extracted and sent to the child process.
+      To handle running the function in its own process, the functions content/body is extracted and sent to the child process. It was a pain in the ass.
     </div>
     <pre class="code">
-      /* This function declaration is stripped away, including the { } */
-      function myFn() {
-        /* ...BUT the inner body of the function will remain! */
-        console.log("Test")
-      }
-      /* Therefore, the string passed to the child process will just be: */
-      console.log("Test")
+/* This function declaration is stripped away, including the { } */
+function myFn() {
+  /* ...BUT the inner body of the function will remain! */
+  console.log("Test")
+}
+
+/* Therefore, the string passed to the child process will just be: */
+console.log("Test")
     </pre>
     <div>
-
-    </div>  
+      A <pre>Profiler()</pre> is then created to track the spawned child process. The child process is then sent a signal to start the function, which it does.
+      Once the function is finished, the child process sends a "finished" message back, and the profiler is stopped and the results are returned!
+    </div>
+    <h2>benchFile()</h2>
+    <div>
+      The <pre>benchFile()</pre> function is essentially identical to the <pre>bench()</pre> function, except a filename must be passed instead of a JavaScript function.
+      Principally, they work the exact same.
+    </div>
+    <div>
+      If you'd like to take a look at sloth, you can do so <a href="https://github.com/AcroMedia/sloth">here!</a>
+    </div>
   </div>
 </div>
