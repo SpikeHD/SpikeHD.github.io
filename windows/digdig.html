@@ -1,3 +1,67 @@
-<div>
-  heyyy hiii
+<div class="digdig_main">
+  <img src="./image/digdig_logo.png" class="digdig_logo" />
+
+  <p class="digdig_subtitle"><i>Dig Deep! Race your friend to the center of the planet in this epic local co-op digging game!</i></p>
+
+  <h1>What's a "DigDig"?</h1>
+
+  <p>
+    DigDig was a game created for the <a href="https://itch.io/jam/mini-jame-gam-15/entries">Mini Jame Gam #15</a>!
+    It was entirely written by me, with art and SFX done by <a href="https://twitter.com/DPY40407454">89XX</a> (as well as a song contributed
+    by a friend of ours), and it achieved an overall placement of #15. You can also watch this <a href="https://www.youtube.com/watch?v=BS4mRMIK5O0">short video</a>
+    on the process of creating DigDig.
+  </p>
+  
+  <h1>Sure but what actually <i>is</i> the game?</h1>
+
+  <p>
+    DigDig is a competitive split-screen game where two little men with shovels race to dig to the center of the world. The game is laid out where
+    the first player is on the top half, and the other player is on the bottom half, but their view is rotated 180 degrees, so it looks like he is on
+    the other side of the world.
+  </p>
+  <p>
+    There are clusters of rock throughout the world, which are harder to dig through. TNT can also be found, which blows up a small area around it. The
+    worlds are entirely randomly generated.
+  </p>
+
+  <div class="digdig_screenshots">
+    <img src="./image/screenshots/digdig/digdig2.png" style="height: 400px" />
+    <img src="./image/screenshots/digdig/digdig1.png" style="height: 400px" />
+  </div>
+
+  <h1>Technical Nonsense</h1>
+
+  <p>
+    In this game jam, we only had two days to complete the game from start to finish. Knowing these constraints, I still opted
+    to use an engine I had never really used before, Godot.
+
+    All code is written in GDScript. The GDScript is bad. I am sorry.
+  </p>
+  <p>
+    The internal structure of the game is a little weird, in the sense that instead of using something like a TileMap, the placement of
+    each block is actually calculated byt using it's size and scale. Obviously this works because every block is the same size, but
+    it is a bit of a weird choice (and I have yet to find out if a TileMap would've even worked).
+  </p>
+  <p>
+    To efficiently remove block during TNT explosions, the game does not use raycasts or anything weird like that to find adjacent tiles. Instead,
+    each tile is assigned it's grid coordinate when generated. This way, the TNT can read it's own coordinate and get the adjacent tiles 
+    using simple math instead.
+  </p>
+  <p>
+    A little cheat we did to get through making the game faster, is that the other player is not actually at the other end of the world.
+    Rather, the other player is barely offscreen of the first, and they are beside eachother! The original idea was that the players would be
+    able to see eachother approaching the middle as they both got close, but this was scrapped due to time and complexity (eg. having to reverse gravity
+    for one of the players).
+  </p>
+
+  <h1>Links and Stuff</h1>
+
+  <p>
+    If you would like to take a look at the game, you can take a look at these links!
+
+    <ul>
+      <li>Source Code: <a href="https://github.com/SpikeHD/DigDig">GitHub</a></li>
+      <li>Itch.io page: <a href="https://89xx.itch.io/dig-dig">itch.io</a></li>
+    </ul>
+  </p>
 </div>

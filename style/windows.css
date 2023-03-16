@@ -564,3 +564,55 @@
 .cv_song img {
   width: 100%;
 }
+
+/* DIGDIG (wow ths file is getting long) */
+#window_digdig .window_contents {
+  background-image: url('../image/digdig_menu.png');
+  padding-top: 0;
+  padding-bottom: 20;
+
+  color: #fff;
+}
+
+#window_digdig p {
+  margin: 10px 20px 10px 20px;
+}
+
+#window_digdig a {
+  color: #fff;
+}
+
+#window_digdig h1 {
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center;
+
+  margin: 6px;
+}
+
+.digdig_main {
+  margin: 0 40px 0 40px;
+  background-color: rgba(27, 28, 51, 0.8);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.digdig_subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+
+  margin: 6px;
+}
+
+.digdig_screenshots {
+  width: 80%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
