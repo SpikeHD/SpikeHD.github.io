@@ -593,6 +593,8 @@
 .digdig_main {
   margin: 0 40px 0 40px;
   background-color: rgba(27, 28, 51, 0.8);
+  
+  font-family: Arial, sans-serif;
 
   display: flex;
   flex-direction: column;
