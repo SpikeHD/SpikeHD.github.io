@@ -102,3 +102,8 @@
   width: 90%;
   color: #fff;
 }
+
+/* DOOM */
+.desktop_icon[name="doom"] {
+  bottom: 150px;
+}
