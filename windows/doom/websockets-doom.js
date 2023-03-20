@@ -3798,6 +3798,18 @@ async function startDoom() {
     quit_(code, new ExitStatus(code));
   }
 
+  // This sucks but idc
+  setTimeout(() => {
+    const windowDoom = document.querySelector('#window_doom .window_actions img')
+
+    if (windowDoom) {
+      windowDoom.addEventListener('click', () => {
+        _proc_exit(0)
+      })
+    }
+  }, 300)
+
+
   function exitJS(status, implicit) {
     EXITSTATUS = status;
     if (!keepRuntimeAlive()) {
