@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><a href="spikehd.github.io">Click here to visit!</a></h1>
+  <h1><a href="https://spikehd.github.io">Click here to visit!</a></h1>
 </div>
 
 ## Where am I?
