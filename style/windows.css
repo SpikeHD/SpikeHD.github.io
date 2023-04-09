@@ -618,3 +618,62 @@
   justify-content: space-between;
   align-items: center;
 }
+
+/* CSMLC */
+#window_csmlc .window_contents {
+  background-image: url('../image/old_inferno.png');
+  padding-top: 0;
+  padding-bottom: 20;
+
+  color: #fff;
+}
+
+#window_csmlc p {
+  margin: 10px 20px 10px 20px;
+}
+
+#window_csmlc a {
+  color: #fff;
+}
+
+#window_csmlc h1 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+
+  margin: 6px;
+}
+
+.cs_main {
+  margin: 0 40px 0 40px;
+  background-color: rgba(63, 63, 63, 0.4);
+
+  backdrop-filter: blur(10px);
+  
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cs_main video {
+  width: 80%;
+}
+
+.cs_title {
+  font-family: 'cs_regular', Arial, sans-serif;
+  font-size: 60px !important;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  margin: 20px;
+  padding-top: 20px;
+
+  filter: invert(1);
+  color: #000;
+}

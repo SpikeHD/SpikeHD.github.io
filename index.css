@@ -45,6 +45,11 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: 'cs_regular';
+  src: url('./font/cs_regular.ttf');
+}
+
 html {
   overflow: hidden;
   user-select: none;

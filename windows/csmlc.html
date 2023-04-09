@@ -1,0 +1,37 @@
+<div class="cs_main">
+  <h1 class="cs_title">
+    CS <img src="./image/cs_guy.png" style="height: 50px; vertical-align: top" /> MLC
+  </h1>
+  <p><b>C</b>ounter <b>S</b>trike <b>M</b>achine <b>L</b>earning <b>C</b>heats</p>
+
+  <p>
+    CSMLC is a project I created to learn image recognition machine learning. Using a modified <a href="https://github.com/SpikeHD/cs2-data-dumper">CS2 ESP program</a>
+    to dump bounding box data into YOLO format, I am able to efficiently gather training data after just a little bit of cleanup! 
+  </p>
+
+  <h1>Example</h1>
+  <p>
+    Top-left is the output, where it will show the bounding boxes of players.
+  </p>
+  <div class="flex-center-row">
+    <video type="video/mp4" controls="true" src="https://user-images.githubusercontent.com/25207995/230737594-096aabe8-e91f-4739-9771-54b227ed62fc.mp4" />
+  </div>
+
+  <h1>Technical Stuff</h1>
+  <p>
+    The training is done using YOLOv8, which is a super fast and super accurate machine learning model. To get training data, I forked an existing
+    <a href="https://github.com/SpikeHD/cs2-data-dumper">CS2 ESP</a> cheat, and added a feature to dump bounding box data into YOLO format. This way, I can easily gather training data without having to
+    manually label each bounding box. Of course, I have to go through and remove bounding boxes that label players through walls, but that is way easier than manually
+    entering the data.
+  </p>
+  <p>
+    It is trained on my RTX 3070 8gb, and took about 1 hour to train to the level shown above! The original training set was about 1.6k images,
+    which isn't really alot in machine learning standards, but I plan on adding more images in the future.
+  </p>
+
+  <h1>Try it yourself</h1>
+  <p>
+    The repo contains, and will be updated with, the best model that I train at any given time. You can clone the repo and try it yourself
+    <a href="https://github.com/SpikeHD/CSMLC ">here</a>!
+  </p>
+</div>
