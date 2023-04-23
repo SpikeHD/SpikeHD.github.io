@@ -135,6 +135,13 @@ body {
   padding: 30px;
 
   font-size: 1.2rem;
+
+  transition: all 0.4s ease-in-out;
+}
+
+.info_card.hide {
+  transform: translateX(-100px);
+  opacity: 0;
 }
 
 .info_card div {

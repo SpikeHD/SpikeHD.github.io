@@ -40,7 +40,7 @@ async function typingAnim() {
 }
 
 /**
- * Yoinked from 
+ * Yoinked from https://stackoverflow.com/a/7557433/13438741
  */
 function isElementInViewport(el) {
   let rect = el.getBoundingClientRect();
@@ -52,3 +52,19 @@ function isElementInViewport(el) {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
   );
 }
+
+document.addEventListener('scroll', (evt) => {
+  if (didScroll) return
+
+  ddScroll = true;
+
+  setTimeout(() => {
+    didScroll = false
+  }, 500)
+
+  document.querySelectorAll('.info_card').forEach((elm) => {
+    if (isElementInViewport(elm)) {
+      elm.classList.remove('hide')
+    }
+  })
+})
