@@ -12,6 +12,41 @@ body {
   padding: 0;
 }
 
+#preview {
+  top: 10%;
+  color: #fff;
+}
+
+#preview a {
+  color: #fff;
+}
+
+#preview div {
+  width: 35%;
+}
+
+#preview img {
+  width: 100%;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#preview img:hover {
+  transform: scale(1.1);
+}
+
+#prev_1 {
+  position: absolute;
+  top: 2%;
+  left: 45%;
+}
+
+#prev_2  {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+}
+
 #info_chunk,
 #top_chunk {
   display: flex;
@@ -40,6 +75,8 @@ body {
   height: 100vh;
   width: 100%;
   min-height: 100vh;
+
+  padding-top: 200px;
 
   display: flex;
   flex-direction: column;
@@ -137,6 +174,15 @@ body {
   font-size: 1.2rem;
 
   transition: all 0.4s ease-in-out;
+}
+
+.info_card img {
+  transition: all 0.2s ease-in-out;
+}
+
+.info_card img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .info_card.hide {
