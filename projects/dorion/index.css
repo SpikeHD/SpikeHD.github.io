@@ -1,15 +1,15 @@
 html {
   margin: 0;
   padding: 0;
-
-  background-color: #000;
-
-  overflow-x: hidden;
 }
 
 body {
   font-family: 'Courier New', monospace;
   font-weight: bold;
+  backdrop-filter: blur(5px);
+
+  margin: 0;
+  padding: 0;
 }
 
 #info_chunk,
@@ -20,6 +20,33 @@ body {
 
   align-items: center;
   justify-content: center;
+
+  overflow-x: hidden;
+}
+
+#top_chunk {
+  background-image: url(./images/rust2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: fixed;
+}
+
+#info_chunk {
+  background-image: linear-gradient(to bottom, #22272E, #1C2128 2%);
+}
+
+.inner {
+  backdrop-filter: blur(5px);
+  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  overflow-x: hidden;
 }
 
 #main {
@@ -46,6 +73,7 @@ body {
 #links {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .link_btn {
@@ -55,12 +83,14 @@ body {
 
   border-radius: 4px;
 
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .link_btn a {
   color: #fff;
   font-size: 1.5rem;
+
+  text-decoration: none;
 }
 
 .link_btn:hover {
@@ -99,10 +129,12 @@ body {
 
   color: #fff;
 
-  height: 30vh;
+  height: 35vh;
   width: 80%;
 
   padding: 30px;
+
+  font-size: 1.2rem;
 }
 
 .info_card div {

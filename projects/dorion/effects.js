@@ -19,7 +19,7 @@ async function typingAnim() {
   for (const letter of TITLE.split('')) {
     title.innerHTML = title.innerHTML.replace('|', '') + letter + '|'
 
-    await timeout(100)
+    await timeout(Math.floor(Math.random() * 100) + 60)
   }
 
   // Once the "typing" is done, blink the cursor
@@ -37,4 +37,18 @@ async function typingAnim() {
       
     title.innerHTML = title.innerHTML.replace(/&nbsp;$/, '|')
   }, 500)
+}
+
+/**
+ * Yoinked from 
+ */
+function isElementInViewport(el) {
+  let rect = el.getBoundingClientRect();
+
+  return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+  );
 }
