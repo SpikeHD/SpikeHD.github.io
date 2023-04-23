@@ -12,12 +12,12 @@ body {
   padding: 0;
 }
 
-#preview {
-  top: 10%;
+a {
   color: #fff;
 }
 
-#preview a {
+#preview {
+  top: 10%;
   color: #fff;
 }
 
@@ -116,7 +116,8 @@ body {
 .link_btn {
   padding: 20px;
   margin: 20px;
-  background-color: grey;
+  background-color: #14181d;
+  border: 1px solid #252525;
 
   border-radius: 4px;
 
