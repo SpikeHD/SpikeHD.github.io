@@ -78,11 +78,16 @@ async function createWindow(name, path = '', dimensions = null) {
   // Make title draggable
   assignTitleDraggable(document.querySelector(`#window_${name} .window_title`))
 
+  // Create taskbar entry
+  createTaskbarEntry(name, image)
+
   // Assign close event to clicking the close button
   const closeBtn = document.querySelector(`#window_${name} .window_actions img`)
   closeBtn.addEventListener('click', () => {
     const window = document.querySelector(`#window_${name}`)
     window.remove()
+    
+    removeTaskbarEntry(name)
   })
 }
 
@@ -144,11 +149,16 @@ async function createDialog(name, heading, contents) {
   document.querySelector(`#${id} .diag-header`).innerHTML = heading
   document.querySelector(`#${id} .diag-contents`).innerHTML = contents
 
+  // Create taskbar entry
+  createTaskbarEntry(name, './image/desktop/win_xp_default.png')
+
   // Assign close event to clicking the close button
   const closeBtn = document.querySelector(`#${id} .window_actions img`)
   closeBtn.addEventListener('click', () => {
     const window = document.querySelector(`#${id}`)
     window.remove()
+
+    removeTaskbarEntry(name)
   })
 
   // Assign close event to Ok button as well
@@ -156,7 +166,43 @@ async function createDialog(name, heading, contents) {
   okBtn.addEventListener('click', () => {
     const window = document.querySelector(`#${id}`)
     window.remove()
+
+    removeTaskbarEntry(name)
   })
+}
+
+function createTaskbarEntry(name, img) {
+  const entry = document.createElement('div')
+  const title = document.createElement('span')
+  const icon = document.createElement('img')
+  entry.className = 'taskbar_icon'
+  entry.setAttribute('name', name)
+
+  title.innerHTML = getNiceName(name)
+  icon.src = img
+
+  entry.appendChild(icon)
+  entry.appendChild(title)
+
+  // When you click the taskbar entry, bring the window to the front
+  entry.addEventListener('click', () => {
+    const window = document.querySelector(`#window_${name}`)
+
+    // Ensure all other windows are behind
+    document.querySelectorAll('.window').forEach(e => {
+      e.style.zIndex = 998
+    })
+
+    // Bring this one to the front
+    window.style.zIndex = 999
+  })
+
+  document.querySelector('#taskbar_icons').appendChild(entry)
+}
+
+function removeTaskbarEntry(name) {
+  const entry = document.querySelector(`.taskbar_icon[name='${name}']`)
+  entry.remove()
 }
 
 function getNiceName(name) {
