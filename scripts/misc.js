@@ -74,3 +74,32 @@ async function blackscreen(ms) {
 
   black.style.display = 'none'
 }
+
+/**
+ * Play the little typing animation in the splash screen
+ */
+async function fancyType(elm, str, time = 100) {
+  if (!elm) return
+
+  for (const letter of str.split('')) {
+    elm.innerHTML = elm.innerHTML.replace('|', '') + letter + '|'
+
+    await wait(time)
+  }
+
+  // Once the "typing" is done, blink the cursor
+  let cur = true
+
+  return setInterval(() => {
+    if (cur) {
+      cur = false
+      
+      elm.innerHTML = elm.innerHTML.replace('|', '&nbsp;')
+      return
+    }
+    
+    cur = true
+      
+    elm.innerHTML = elm.innerHTML.replace(/&nbsp;$/, '|')
+  }, 500)
+}

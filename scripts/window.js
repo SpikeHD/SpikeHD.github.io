@@ -86,7 +86,7 @@ async function createWindow(name, path = '', dimensions = null) {
   closeBtn.addEventListener('click', () => {
     const window = document.querySelector(`#window_${name}`)
     window.remove()
-    
+
     removeTaskbarEntry(name)
   })
 }
@@ -202,7 +202,7 @@ function createTaskbarEntry(name, img) {
 
 function removeTaskbarEntry(name) {
   const entry = document.querySelector(`.taskbar_icon[name='${name}']`)
-  entry.remove()
+  if (entry) entry.remove()
 }
 
 function getNiceName(name) {

@@ -10,7 +10,7 @@ function fillSettings() {
 
 function setCookie(name, val) {
   // This feels wrong but is right
-  document.cookie = `${name}=${val}`
+  document.cookie = `${name}=${val}; expires=Fri, 31 Dec 9999 23:59:59 GMT`
 }
 
 // Nice cookie solution: https://stackoverflow.com/a/15724300

@@ -1,3 +1,4 @@
+#solution_screen,
 #blackscreen {
   position: absolute;
   top:0;
@@ -28,4 +29,25 @@
   font-family: 'ClaCon2', 'Pixelated MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   z-index: 9999;
+}
+
+/* Solution-specific styles */
+#solution_screen {
+  font-family: "Pixelated MS Sans Serif", Arial;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+
+  font-size: 3em;
+
+  z-index: 29;
+}
+
+#solution_dialog {
+  width: 70%;
+  text-align: center;
 }
