@@ -6,7 +6,9 @@
 
   <p>
     CSMLC is a project I created to learn image recognition machine learning. Using a modified <a href="https://github.com/SpikeHD/cs2-data-dumper">CS2 ESP program</a>
-    to dump bounding box data into YOLO format, I am able to efficiently gather training data after just a little bit of cleanup! 
+    to dump bounding box data into YOLO format, I am able to efficiently gather training data after just a little bit of cleanup!
+
+    It uses <a href="https://ultralytics.com/">Ultralytics (YOLOv8)</a>, <a href="https://pypi.org/project/opencv-python/">OpenCV-Python</a>, <a href="https://pypi.org/project/dxcam/">dxcam</a>, and <a href="https://pypi.org/project/PyDirectInput/">pydirectinput</a>
   </p>
 
   <h1>Example</h1>
@@ -29,9 +31,15 @@
     which isn't really alot in machine learning standards, but I plan on adding more images in the future.
   </p>
 
+  <p>
+    The automatic controls, such as automatically pressing the trigger when moused over an enemy, or snapping the aim to enemies automatically, are done with
+    pyautogui. While the trigger-pressing is very effective and easy CS2 (and likely most games) are a bit finnicky when sending direct mouse movement inputs, 
+    so it's a bit janky. When using it as more of an aim "assist" rather than an aimbot, it works pretty well.
+  </p>
+
   <h1>Try it yourself</h1>
   <p>
     The repo contains, and will be updated with, the best model that I train at any given time. You can clone the repo and try it yourself
-    <a href="https://github.com/SpikeHD/CSMLC ">here</a>!
+    <a href="https://github.com/SpikeHD/CSMLC">here</a>!
   </p>
 </div>
