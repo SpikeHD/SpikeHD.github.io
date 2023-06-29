@@ -16,6 +16,23 @@ a {
   color: #fff;
 }
 
+#home {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#home:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#home img {
+  height: 50px;
+}
+
 #preview {
   top: 10%;
   color: #fff;
