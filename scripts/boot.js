@@ -65,7 +65,7 @@ async function startBoot() {
   megatrends.style = 'display: none'
 
   for (const msg of messages) {
-    await wait(rand(50, 600))
+    await wait(rand(50, 300))
 
     await doConsoleMessage(msg)
   }
@@ -106,7 +106,7 @@ async function doConsoleMessage(m) {
     const statusColor = isErr ? 'red' : 'green'
     const appended = consoleContainer.appendChild(message)
 
-    await wait(rand(150, 600))
+    await wait(rand(150, 300))
 
     // Now append the status
     appended.innerHTML = `${appended.innerHTML} <span class="console_append ${statusColor}">${isErr ? 'ERR' : 'OK'}</span>`
