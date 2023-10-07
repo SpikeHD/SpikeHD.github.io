@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style/console.css" />
     <link rel="stylesheet" href="./style/boot.css" />
     <link rel="stylesheet" href="./style/desktop.css" />
+    <link rel="stylesheet" href="./style/start_menu.css" />
     <link rel="stylesheet" href="./style/window.css" />
     <link rel="stylesheet" href="./style/windows.css" />
     <link rel="stylesheet" href="./style/special.css" />
@@ -76,7 +77,7 @@
           <span>Information</span>
         </div>
 
-        <div class="desktop_icon" name="settings" data-window-width="400" data-wdndow-height="400" onclick="setTimeout(fillSettings, 200)">
+        <div class="desktop_icon" name="settings" data-window-width="400" data-window-height="400" onclick="setTimeout(fillSettings, 200)">
           <img src="image/desktop/win_xp_default.png" data-src="./image/desktop/win_xp_control_panel.png" />
           <span>Settings</span>
         </div>
@@ -145,7 +146,7 @@
       </div>
 
       <div id="taskbar">
-        <div id="taskbar_start">
+        <div id="taskbar_start" onclick="toggleStartMenu()">
           <img src="./image/win_xp_start.png" />
         </div>
         <div id="taskbar_icons">
@@ -166,6 +167,34 @@
 
       <!-- This is where all windows are going to be created -->
       <div id="window_manager"></div>
+
+      <!-- This is where the Start menu will go -->
+      <div id="start_menu" style="display: none;">
+        <div id="start_menu_top">
+          <div id="start_menu_image">
+            <img src="https://avatars.githubusercontent.com/u/25207995?v=4" />
+          </div>
+          <span>
+            SpikeHD
+          </span>
+        </div>
+
+        <div id="start_menu_main"></div>
+
+        <div id="start_menu_bottom">
+          <div id="start_menu_buttons">
+            <div class="start_menu_button">
+              <img src="image/win_xp_logout.png" />
+              <span><u>L</u>og Off</span>
+            </div>
+
+            <div class="start_menu_button">
+              <img src="image/win_xp_shutdown.png" />
+              <span>Sh<u>u</u>t Down</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
@@ -175,6 +204,7 @@
 <script src="./scripts/window_drag.js"></script>
 <script src="./scripts/window.js"></script>
 <script src="./scripts/desktop.js"></script>
+<script src="./scripts/start_menu.js"></script>
 <script src="./scripts/experience.js"></script>
 <script src="./scripts/boss.js"></script>
 <script src="./windows/doom/script.js"></script>
