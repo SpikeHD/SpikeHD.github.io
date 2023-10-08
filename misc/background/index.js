@@ -2,7 +2,7 @@ let currentDate = new Date();
 
 setInterval(() => {
   updateTime();
-}, 5000);
+}, 1000);
 
 function updateTime() {
   const timeElm = document.getElementById('time');
