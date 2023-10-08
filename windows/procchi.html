@@ -22,12 +22,12 @@
   <p>
     The powerhouse of the backend is a library called <a href="https://docs.rs/sysinfo/latest/sysinfo/">sysinfo</a>.
     It is a fantastic and simple library that works on basically all platforms that would matter.
-    Using this library, we can get system info (who knew!) such as CPU usage, memory usage, disk
+    Using this library, I can get system info (who knew!) such as CPU usage, memory usage, disk
     space, a list of running processes, and more! The information gathered is then entirely configurable and stored in-memory, 
     and the whole program does not write <i>anything</i> to disk.
   </p>
   <p>
-    In order to serve the web interface, and the API the web interface pings, we also
+    In order to serve the web interface, and the API the web interface pings, I also
     utilize a library called <a href="https://docs.rs/tide/latest/tide/">tide</a>.
   </p>
 
@@ -48,7 +48,7 @@
     the executable. The code for this is honestly pretty simple:
   </p>
   <pre class="code">
-    // This is how we include the entire dir full of built Preact files
+    // This is how I include the entire dir full of built Preact files
     static FRONTEND_DIR: Dir = include_dir!("../frontend/dist");
 
     // ...
