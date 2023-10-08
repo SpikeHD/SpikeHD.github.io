@@ -3,8 +3,6 @@ function toggleStartMenu(override = null) {
   let desktop = document.getElementById("desktop");
 
   let closeEvt = () => {
-    if (!startMenuOpen()) return;
-
     toggleStartMenu("none");
     desktop.removeEventListener("click", closeEvt);
   };
