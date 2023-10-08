@@ -714,3 +714,49 @@
   filter: invert(1);
   color: #000;
 }
+
+/* PROCCHI */
+#window_procchi img {
+  width: 100%;
+}
+
+#procchi_main {
+  font-family: Montserrat,sans-serif;
+}
+
+#procchi_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  text-decoration: none !important;
+
+  font-family: Dela Gothic One,cursive;
+
+  height: 42px;
+}
+
+#procchi_title img {
+  height: 100%;
+  width: inherit;
+
+  padding: 8px;
+}
+
+#procchi_main h1 {
+  text-decoration: underline;
+}
+
+#procchi_main pre {
+  display: inline-block;
+}
+
+#procchi_main .code {
+  width: 100%;
+  background-color: #eee;
+
+  padding-top: 8px;
+
+  border-radius: 4px;
+}

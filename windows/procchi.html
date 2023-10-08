@@ -1,0 +1,133 @@
+<div id="procchi_main">
+  <h1 id="procchi_title">
+    <img src="image/desktop/procchi.png" />
+    Procchi
+  </h1>
+  <img src="image/procchi_main.png" />
+  <h1>Introduction</h1>
+  <p>
+    Procchi is a dead-simple, web-accessible resource monitor, designed for servers.
+    Originally, the reason I wanted to create this was to keep an eye on a VPS I use
+    to host a couple Minecraft servers for friends.
+  </p>
+
+  <h1>How does it work?</h1>
+  <p>
+    The Procchi backend is written in pure Rust, and the frontend is written using
+    a library named Preact. I opted for Preact due to how relatively lightweight it
+    is, while still having the exact same functionality as regular React.
+  </p>
+
+  <h2>The Backend</h2>
+  <p>
+    The powerhouse of the backend is a library called <a href="https://docs.rs/sysinfo/latest/sysinfo/">sysinfo</a>.
+    It is a fantastic and simple library that works on basically all platforms that would matter.
+    Using this library, we can get system info (who knew!) such as CPU usage, memory usage, disk
+    space, a list of running processes, and more! The information gathered is then entirely configurable and stored in-memory, 
+    and the whole program does not write <i>anything</i> to disk.
+  </p>
+  <p>
+    In order to serve the web interface, and the API the web interface pings, we also
+    utilize a library called <a href="https://docs.rs/tide/latest/tide/">tide</a>.
+  </p>
+
+  <h2>The Frontend</h2>
+  <p>
+    The frontend is written in TypeScript, and uses Preact. It's a pretty simple
+    frontend, and only uses a couple external libraries (for the graphs, of course).
+  </p>
+  <p>
+    In terms of what the frontend shows, the image above is the main stuff you'd want to
+    see, and below that contains a list of processes and their memory/CPU usage.
+  </p>
+
+  <h2>Combining Them Together</h2>
+  <p>
+    To make Procchi as portable as possible, the frontend files aren't fetched from an external resource,
+    nor does it just come with the web files in a zip. Instead, the frontend files are compiled <i>directly into</i>
+    the executable. The code for this is honestly pretty simple:
+  </p>
+  <pre class="code">
+    // This is how we include the entire dir full of built Preact files
+    static FRONTEND_DIR: Dir = include_dir!("../frontend/dist");
+
+    // ...
+
+    // And this is the function that reads those files to create the paths
+    // required for Tide to serve them
+    fn recursive_serve(app: &mut tide::Server<State>, path: Option<&Path>) {
+      // For all dirs in the frontend dir (including the root), serve the files within
+      let path = path.unwrap_or(FRONTEND_DIR.path());
+      let dir = FRONTEND_DIR.get_dir(path).unwrap_or(&FRONTEND_DIR);
+
+      for file in dir.files() {
+        let path = format!("{}", file.path().display());
+
+        logger::print_info(format!("Serving {}", path));
+
+        app
+          .at(&path)
+          .get(move |_req: tide::Request<State>| async move {
+            let mut res = tide::Response::new(200);
+            res.set_body(file.contents().to_vec());
+            res.set_content_type(
+              mime_guess::from_path(file.path())
+                .first()
+                .unwrap()
+                .essence_str(),
+            );
+            Ok(res)
+          });
+      }
+
+      // For all dirs in dir, recursively serve the files within
+      for dir in dir.dirs() {
+        recursive_serve(app, Some(dir.path()));
+      }
+    }
+  </pre>
+
+  <h1>Other Information</h1>
+  <h2>Filesize</h2>
+  <p>
+    One would think that including an entire site into a binary would be cause it to get
+    somewhat hefty, but that's not really the case. A compiled Windows binary - with all features and
+    plugins disabled - will be about <b>5.1 MB</b>! With all plugins enabled, it's just <b>6.4 MB</b>!
+  </p>
+  <p>
+    Oh! And speaking of plugins...
+  </p>
+  <h2>Plugins</h2>
+  <p>
+    Okay, admittedly, calling them "plugins" doesn't really make sense, since users cannot choose
+    which plugins to include or not include into the binary, nor can people make their own without
+    compiling the main program. The curse of being small I guess.
+  </p>
+  <p>
+    What "plugins" really means it "extra features". These are bits of functionality that may be useful,
+    but only to a subsection of users. For example, the first plugin I added was a Minecraft server plugin.
+    This is able to show the current player count, and the version it's running under the "Quick Stats" area.
+    Another plugin that is planned (and may already be available by the time you read this!) is a Docker plugin,
+    for showing containers and their various stats.
+  </p>
+  <p>
+    In <a href="https://github.com/SpikeHD/Procchi/actions">GitHub Actions</a>, I actually compile two
+    seperate binaries for each platform. An "all-features" binary, and a "minimal" binary. The all-features
+    binary is just that, it contains all plugins and features (however, they are still selectively enabled
+    via the CLI when launching Procchi). The minimal binary, of course, is exactly what you think it is, it
+    contains no plugins or extra features, for those who just want the base functionality.
+  </p>
+  <p>
+    For plugins, the Rust "features" functionality is used, so someone compiling for themselves could also
+    selectively include which plugins they want - he downside of course being that they have to build themselves.
+  </p>
+
+  <h1>Where can I find it?</h1>
+  <p>
+    If you'd like to give Procchi a look, you can find it on <a href="https://github.com/SpikeHD/Procchi">GitHub</a>!
+    You can check any of the "build" actions for an up-to-date binary for your system.
+  </p>
+  <p>
+    (It even features a builtin <a href="https://github.com/SpikeHD/Procchi#screenshots">dark mode</a>.)
+  </p>
+</div>
