@@ -1,19 +1,34 @@
 function toggleStartMenu(override = null) {
   let startMenu = document.getElementById("start_menu");
+  let desktop = document.getElementById("desktop");
 
-  if (override === "none") {
+  let closeEvt = () => {
+    if (!startMenuOpen()) return;
+
+    toggleStartMenu("none");
+    desktop.removeEventListener("click", closeEvt);
+  };
+
+  if (override) {
+    if (override !== "none") {
+      desktop.addEventListener("click", closeEvt);
+    }
+
+    startMenu.style.display = override;
+    return;
+  }
+
+  if (startMenuOpen()) {
     startMenu.style.display = "none";
-    return;
-  }
-
-  if (override === "flex") {
-    startMenu.style.display = "block";
-    return;
-  }
-
-  if (startMenu.style.display === "none") {
-    startMenu.style.display = "flex";
   } else {
-    startMenu.style.display = "none";
+    startMenu.style.display = "flex";
+
+    // This sucks
+    setTimeout(() => desktop.addEventListener("click", closeEvt), 100);
   }
+}
+
+function startMenuOpen() {
+  let startMenu = document.getElementById("start_menu");
+  return startMenu.style.display === "flex";
 }
