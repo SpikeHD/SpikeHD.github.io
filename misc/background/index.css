@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap');
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+
+  user-select: none;
+}
+
+body {
+  /* Image credit: PITCH CANKER on Twitter */
+  background-image: url("./background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#container {
+  height: 100%;
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+}
+
+#time {
+  font-size: 7rem;
+  font-weight: 800;
+}
+
+#date {
+  font-size: 5rem;
+  font-weight: 700;
+}
