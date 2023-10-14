@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./style/windows.css" />
     <link rel="stylesheet" href="./style/special.css" />
     <link rel="stylesheet" href="./style/bsod.css" />
+    <link rel="stylesheet" href="./style/shutdown.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- This is used for the Dorion window -->
@@ -63,6 +64,19 @@
           SpikeHD
         </div>
       </div>
+    </div>
+
+    <div id="shutdown">
+      <div class="shutdown_dark shutdown_top"></div>
+
+      <div id="shutdown_main">
+        <div class="shutdown_icon">
+          <img src="./image/spikehdows_xp_white.png" />
+        </div>
+        <span id="shutdown_text">SpikeHDows is shutting down...</span>
+      </div>
+
+      <div class="shutdown_dark shutdown_bottom"></div>
     </div>
 
     <div id="darkenOverlay"></div>
@@ -251,7 +265,7 @@
               <span><u>L</u>og Off</span>
             </div>
 
-            <div class="start_menu_button">
+            <div class="start_menu_button" onclick="shutdown()">
               <img src="image/win_xp_shutdown.png" />
               <span>Sh<u>u</u>t Down</span>
             </div>

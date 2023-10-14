@@ -30,3 +30,31 @@ function startMenuOpen() {
   let startMenu = document.getElementById("start_menu");
   return startMenu.style.display === "flex";
 }
+
+async function shutdown() {
+  // First make desktop icons disappear
+  await wait(500);
+
+  let icons = document.getElementById("desktop_icons");
+  icons.style.opacity = 0;
+
+  // Then the taskbar
+  await wait(1000);
+
+  let taskbar = document.getElementById("taskbar");
+  taskbar.style.opacity = 0;
+
+  // Then show #shut_down
+  await wait(1000);
+
+  let shutDown = document.getElementById("shutdown");
+  shutDown.style.display = "flex";
+
+  // Then wait a bit and show black screen
+  await wait(5000);
+
+  let blackScreen = document.getElementById("blackscreen");
+  blackScreen.style.display = "block";
+
+  shutDown.style.display = "none";
+}
