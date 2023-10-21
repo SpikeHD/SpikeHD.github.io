@@ -32,7 +32,17 @@ function startMenuOpen() {
 }
 
 async function shutdown() {
-  // First make desktop icons disappear
+  await wait(500)
+
+  // Close all windows
+  const closeBtns = document.querySelectorAll(".window_actions img");
+  
+  for (const btn of closeBtns) {
+    btn.click();
+    await wait(100);
+  }
+
+  // make desktop icons disappear
   await wait(500);
 
   let icons = document.getElementById("desktop_icons");
