@@ -90,9 +90,13 @@
   margin: 10px;
 }
 
+#dorion p, h1, h2, h3, div.p {
+  width: 90%;
+}
+
 #dorion {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  text-align: center;
+  text-align: left;
 
   color: #fff;
 }
