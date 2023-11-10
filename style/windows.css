@@ -743,7 +743,7 @@
 
 #procchi_title img {
   height: 100%;
-  width: inherit;
+  width: auto;
 
   padding: 8px;
 }
