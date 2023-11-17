@@ -3,6 +3,9 @@
     <img src="./image/desktop/dorion.png" style="height: 30px; width: 30px; padding: 10px;" />
     Dorion
   </div>
+  <h2>
+    Inception
+  </h2>
   <p>
     Dorion was a project I created to leverage the pre-installation of <a target="_blank" href="https://learn.microsoft.com/en-us/windows/apps/design/controls/web-view">WebView2</a>
     on Windows 11 and updated Windows 10 machines to create a smaller Discord binary. The backend is written in Rust and the "frontend" (which is basically
@@ -14,7 +17,7 @@
   </div>
   <p>
     The original intention was to simply display the Discord web app using <a target="_blank" href="https://tauri.app/">Tauri</a>, a desktop application framework that
-    is designed to allow creating web-based frontends and applications with Rust backends. Using Tauri, I was able to create a binary that was only ~7mb! (That is 
+    is designed to allow creating web-based frontends and applications with Rust backends. Using Tauri, I was able to create a binary that was only ~13mb! (That is 
     much better than the ~70mb of the Discord client)
   </p>
   <p>
@@ -25,18 +28,29 @@
     <img src="./image/screenshots/dorion/dorion_1.jpg" />
     Dorion with a theme applied!
   </div>
-  <div>
-    ... I needed to overcomplicate yet another project. So I did! In the Rust backend, I wrote functions that inject CSS and JavaScript, which was actually relatively easy.
-    I then had to create a CSS preparser, as themes that used CSS <pre>url()</pre>s would fail due to CORS on the Discord site. This preparser would find all <pre>url()</pre>-based imports
-    within the CSS, which includes other CSS files (which are just appended to the main CSS string that is injected), as well as images (which are downloaded and
+  <p>
+    ... I needed to overcomplicate yet another project.
+  </p>
+  <div class="p">
+    So I did! In the Rust backend, I wrote functions that inject CSS and JavaScript, which was actually relatively easy.
+    I then had to create a CSS preprocessor, as themes that used CSS <pre>url()</pre>s would fail due to CORS on the Discord site. This preprocessor would find all <pre>url()</pre>-based imports
+    within the CSS, which includes other CSS files (that are just appended to the main CSS string that is injected), as well as images (which are downloaded and
     inserted as raw Base64).
   </div>
   <p>
-    Before v0.4.0, this would create a small startup delay. Recently though, I rewrote part of Dorion to load <i>as the regular client loads, asynchronously</i>.
+    Everything loads asynchronously, and the preprocessors also run multi-threaded, making them <i>super</i> fast.
   </p>
+  <h2>Javascript Injection</h2>
   <p>
-    So with all that having been done, Dorion is now a cross-platform project that supports themes, <i>including BetterDiscord themes</i>, and plugins (NOT including BetterDiscord plugins)! Because of the
-    added complexity, I was also able to learn more Rust, which is becoming one of my favorite languages, as well as Javascript/CSS injection, which was really fun to learn!
+    Dorion has gone through a couple different phases of how it's functionality is controlled. At first, it was nothing, which meant it was quite hard reworking desktop
+    features to work on the web. Then, I move to using a fork of a Discord client mod called <a href="https://github.com/Vencdicated/Vencord/" target="_blank">Vencord</a>. Vencord was
+    great! But an update to Discord caused all users to get hit with a white screen on startup for about a day, and broke most plugins for a short amount of time. I
+    decided that I wanted to at least <i>try</i> to help Dorion live through these types of events, so...
+  </p>
+  <h2>Shelter</h2>
+  <p>
+    ... I moved to a different client mod called <a href="https://github.com/uwu/shelter" target="_blank">Shelter</a>! Shelter is a client mod that is designed to be
+    resilient to change, and that was important to me. I now maintain several Dorion and not-Dorion related <a href="https://github.com/SpikeHD/shelter-plugins" target="_blank">Shelter plugins</a>.
   </p>
   <p>
     You can check out the Dorion repo <a target="_blank" href="https://github.com/SpikeHD/Dorion">here</a>, and the website <a href="/projects/dorion/">here!</a>
