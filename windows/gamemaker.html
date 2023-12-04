@@ -29,7 +29,7 @@
     <p>
       See, GameMaker function parameters AND return types (with a big exception that I'll get to in a second) can be one of two types: string, or double.
       That's it. No booleans, no integers, no nothing. For this project, it was no big deal, since I was just dealing with string paths
-      and returning timestamps (converted to doubles), but I found this limitation to be interesting.
+      and returning timestamps (converted to doubles), but I found this limitation to be... interesting.
     </p>
     <div>
       The big exception earlier is that you can actually take in... "anything". When you pass, say, a string into a function, your
@@ -42,18 +42,18 @@
       </a>
     </div>
     <p>
-      I have not tried this myself, and I don't think I want to.
+      I have not tried this myself, and I... don't think I want to.
     </p>
 
     <h1>GM Sysinfo</h1>
     <p>
       The next project I wanted to create had a slightly larger scope. I want to be able to get <i>as much</i> system information as possible,
-      and expose that to GameMaker. This includes things like CPU name and usage, memory size and usage, GPU info etc. I also wanted to be able to get
-      information about the current context, like the games PID, users username, and PCs hostname.
+      and expose that to GameMaker. This includes things like CPU name and usage, memory size and usage, GPU info, etc. I also wanted to be able to get
+      information about the current context, like the games PID, user's username, and PCs hostname.
     </p>
     <p>
       For the most part, getting and returning this information was pretty simple, with the help of the <a target="_blank" href="https://docs.rs/sysinfo/latest/sysinfo/">sysinfo</a>
-      crate. Just about everything I needed was there, except for GPU information...
+      crate. Names were strings and values (clockspeed, memory) were doubles, no problem. Just about everything I needed was there, except for GPU information...
     </p>
 
     <h2>Apparently GPU information is hard to get</h2>
@@ -64,7 +64,7 @@
     <div>
       The first solution was for MacOS. The <a target="_blank" href="https://github.com/gfx-rs/">gfx-rs</a> team has
       created <a target="_blank" href="https://github.com/gfx-rs/metal-rs">Metal bindings</a> for Rust, and I was able to use that to
-      grab the two pieces of GPU info that I felt was reasonable to obtain, VRAM and GPU name. The choice for this was:
+      grab the two pieces of GPU info that I felt were reasonable to obtain, VRAM and GPU name. The choice for this was:
 
       <ul>
         <li>Unlike just about anything Apple related, it was super simple</li>
@@ -84,6 +84,24 @@
       In the grand scheme of things, Vulkan is a relatively new API (yknow, compared to OpenGL). Realistically I don't see this as much
       of a problem as, for example, the oldest NVIDIA GPU that supports Vulkan is the GT 630, which came out in 2012. It doesn't significantly
       increase the build size either (in fact, the Windows build is smaller than the MacOS build!), so I think its a fair tradeoff.
+    </p>
+
+    <h1>So how does using them look?</h1>
+    <p>
+      Good question! The function calls look identical to regular GML function calls. Here is an example from GM Sysinfo:
+    </p>
+
+    <pre class="code">
+    var gpu = sysinfo_get_gpu_name();
+      
+    if (string_pos("RTX", gpu) == 0) {
+      show_message_async("Sorry, but your GPU sucks :/");
+      exit;
+    }
+    </pre>
+
+    <p>
+      Easy peasy! Just like you would use anything else!
     </p>
 
     <h1>Where can I find them?</h1>
