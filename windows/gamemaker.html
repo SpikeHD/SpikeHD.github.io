@@ -1,0 +1,96 @@
+<div id="gm_root">
+  <div id="gm_header">
+    GameMaker Studio 2 Extensions
+  </div>
+
+  <div id="gm_content">
+    <p>
+      So, full transparency, I <i>don't</i> use GameMaker. Like, ever. At all.
+    </p>
+    <p>
+      I do, however, have a good friend who uses it, and they use it <i>a lot</i>. From what I have learned from this friend, it seems
+      GMS2 is pretty good, but doesn't come with quite everything one would want. For example, my friend needed to be able to read file metadata
+      for his save files (specifically, the modification date, so they could see what is the most recent save). This led me to create...
+    </p>
+
+    <h1>GM File Metadata</h1>
+    <p>
+      This extension is pretty self explanatory; it exposes functions that allow you to read file metadata. It's pretty simple, but I can
+      see it being fairly useful.
+    </p>
+    <p>
+      I didn't just want to write it in the language most people do (C++). Oh no no no, I needed to make things complicated for myself.
+      After some experimentation, I found that I could write the extension in <a target="_blank" href="https://www.rust-lang.org/">Rust</a>, and pretty
+      easily too! At this point, the extension was a pretty simple task, writing super simple functions that were no more than a few lines
+      that took in file paths and spat out metadata. That hard(er) part was making sure the extension would work right.
+    </p>
+
+    <h2>Why, GameMaker, why?</h2>
+    <p>
+      See, GameMaker function parameters AND return types (with a big exception that I'll get to in a second) can be one of two types: string, or double.
+      That's it. No booleans, no integers, no nothing. For this project, it was no big deal, since I was just dealing with string paths
+      and returning timestamps (converted to doubles), but I found this limitation to be interesting.
+    </p>
+    <div>
+      The big exception earlier is that you can actually take in... "anything". When you pass, say, a string into a function, your
+      extension will actually be passed a <pre>char *</pre>. This means that GameMaker is <i>really</i> just passing you a pointer
+      to whatever is being passed in. For example, you can use GMLs <a target="_blank" href="https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">buffer functions</a>
+      to create and pass in buffers, and then read that buffer in your extension. In theory, assuming you understand the internal memory structure of GameMakers
+      arrays, or structs, etc., you could even read those in your extension. Though, they
+      <a target="_blank" href="https://github.com/YoYoGames/GameMakerStudio_ExtensionExample/blob/781bb1464be7399d0d9cd4353775238a95087d21/ExampleExtension.cpp#L102C27-L102C27">
+        reccommend you be careful as GML controls the variables life.
+      </a>
+    </div>
+    <p>
+      I have not tried this myself, and I don't think I want to.
+    </p>
+
+    <h1>GM Sysinfo</h1>
+    <p>
+      The next project I wanted to create had a slightly larger scope. I want to be able to get <i>as much</i> system information as possible,
+      and expose that to GameMaker. This includes things like CPU name and usage, memory size and usage, GPU info etc. I also wanted to be able to get
+      information about the current context, like the games PID, users username, and PCs hostname.
+    </p>
+    <p>
+      For the most part, getting and returning this information was pretty simple, with the help of the <a target="_blank" href="https://docs.rs/sysinfo/latest/sysinfo/">sysinfo</a>
+      crate. Just about everything I needed was there, except for GPU information...
+    </p>
+
+    <h2>Apparently GPU information is hard to get</h2>
+    <p>
+      So, a cool fun fact I got to learn (as someone who has never done any GPU-level programming thus far), is that GPU information is
+      <i>really</i> hard to get. To tackle this, I came up with... well... technically two solutions.
+    </p>
+    <div>
+      The first solution was for MacOS. The <a target="_blank" href="https://github.com/gfx-rs/">gfx-rs</a> team has
+      created <a target="_blank" href="https://github.com/gfx-rs/metal-rs">Metal bindings</a> for Rust, and I was able to use that to
+      grab the two pieces of GPU info that I felt was reasonable to obtain, VRAM and GPU name. The choice for this was:
+
+      <ul>
+        <li>Unlike just about anything Apple related, it was super simple</li>
+        <li>It makes the built .dylib super small</li>
+      </ul>
+
+      For the other two platforms, Windows and Linux, I obviously had to come up with a different solution.
+    </div>
+    <p>
+      You are welcome to call me lazy for this, because I agree, but the decision I ended up making was to use the
+      <a target="_blank" href="https://github.com/vulkano-rs/vulkano">Vulkano</a> crate. This crate is a wrapper around the Vulkan API, and
+      comes with both benefits and caveats. The benefits are that its pretty easy to use, and its cross platform. It exposes the two
+      aforementioned pieces of information I wanted (VRAM and GPU name) with a relatively low amount of fanfare. The problem, however,
+      is that it doesn't support <i>all</i> GPUs.
+    </p>
+    <p>
+      In the grand scheme of things, Vulkan is a relatively new API (yknow, compared to OpenGL). Realistically I don't see this as much
+      of a problem as, for example, the oldest NVIDIA GPU that supports Vulkan is the GT 630, which came out in 2012. It doesn't significantly
+      increase the build size either (in fact, the Windows build is smaller than the MacOS build!), so I think its a fair tradeoff.
+    </p>
+
+    <h1>Where can I find them?</h1>
+    <div>
+      You can find GM File Metadata <a target="_blank" href="https://github.com/SpikeHD/file-metadata">here</a>.
+      <br>
+      You can find GM Sysinfo <a target="_blank" href="https://github.com/SpikeHD/gm-sysinfo">here</a>.
+    </div>
+  </div>
+</div>

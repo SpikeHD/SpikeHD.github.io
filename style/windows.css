@@ -764,3 +764,87 @@
 
   border-radius: 4px;
 }
+
+/* GAMEMAKER */
+#window_gamemaker .window_contents {
+  padding-top: 0;
+  padding-bottom: 20;
+
+  color: #fff;
+  background: #282828; 
+
+  font-family: open_sansregular, Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#gm_root {
+  width: 90%;
+}
+
+#gm_root a {
+  color: #04de80;
+  font-weight: bold;
+}
+
+#gm_root pre {
+  display: inline-block;
+  background: #181818;
+  color: #04de80;
+
+  padding: 4px;
+  margin: 0;
+
+  border-radius: 4px;
+}
+
+#gm_header {
+  background-color: #181818;
+  
+  /* The images here (and below) were taken from the GML docs directly */
+  background-image: url(../image/gm_header_bump.png),url(../image/gm_header_bar.gif);
+  background-repeat: no-repeat,repeat;
+
+  font-weight: bold;
+
+  width: 100%;
+
+  padding: 12px;
+  margin-top: 12px;
+
+  border-radius: 6px 6px 0 0;
+
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+  font-size: 24px;
+}
+
+#gm_root h1,
+#gm_root h2 {
+  font-family: open_sansbold, Arial, sans-serif;
+}
+
+#gm_root h1 {
+  background-image: url(../image/gm_header_underline.png);
+  background-repeat: no-repeat,repeat;
+  background-position: bottom left;
+}
+
+/* Most of this was just yoinked from the GML docs */
+#gm_root ul {
+  list-style: none;
+}
+
+#gm_root li::before {
+  content: "\2022";
+  color: #04de80;
+  font-weight: 700;
+  width: 1em;
+  margin-left: -1em;
+  display: inline-block;
+}
+
