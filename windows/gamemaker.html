@@ -10,18 +10,18 @@
     <p>
       I do, however, have a good friend who uses it, and they use it <i>a lot</i>. From what I have learned from this friend, it seems
       GMS2 is pretty good, but doesn't come with quite everything one would want. For example, my friend needed to be able to read file metadata
-      for his save files (specifically, the modification date, so they could see what is the most recent save). This led me to create...
+      for their save files (specifically, the modification date, so they could see what is the most recent save). This led me to create...
     </p>
 
     <h1>GM File Metadata</h1>
     <p>
-      This extension is pretty self explanatory; it exposes functions that allow you to read file metadata. It's pretty simple, but I can
-      see it being fairly useful.
+      This extension is pretty self explanatory; it exposes functions that allow you to read file metadata. It's pretty simple, sure, but this is somewhat
+      rudimentary functionality that should be fairly helpful to some.
     </p>
     <p>
       I didn't just want to write it in the language most people do (C++). Oh no no no, I needed to make things complicated for myself.
-      After some experimentation, I found that I could write the extension in <a target="_blank" href="https://www.rust-lang.org/">Rust</a>, and pretty
-      easily too! At this point, the extension was a pretty simple task, writing super simple functions that were no more than a few lines
+      After some experimentation I found that I could write the extension in <a target="_blank" href="https://www.rust-lang.org/">Rust</a>, and pretty
+      easily too! At this point the extension was a pretty simple task, writing super simple functions that were no more than a few lines
       that took in file paths and spat out metadata. That hard(er) part was making sure the extension would work right.
     </p>
 
@@ -38,7 +38,7 @@
       to create and pass in buffers, and then read that buffer in your extension. In theory, assuming you understand the internal memory structure of GameMakers
       arrays, or structs, etc., you could even read those in your extension. Though, they
       <a target="_blank" href="https://github.com/YoYoGames/GameMakerStudio_ExtensionExample/blob/781bb1464be7399d0d9cd4353775238a95087d21/ExampleExtension.cpp#L102C27-L102C27">
-        reccommend you be careful as GML controls the variables life.
+        recommend you be careful (as GML controls the variables life on its own).
       </a>
     </div>
     <p>
