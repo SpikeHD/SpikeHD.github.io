@@ -1,0 +1,95 @@
+<div id="titune_main">
+  <img src="./image/desktop/titune.png" style="width: 6%"/>
+
+  <h1>What's Titune?</h1>
+  <p>
+    Titune is a fully synced, YouTube playlist based radio creator and player. For a while, I've wanted to be able to listen to online "radio stations" made up of my own choices of music, where other people could listen
+    along with just a link. Now I'm sure this already exists, but no learning comes from using someone else's service, so I decided I would make my own!
+  </p>
+  
+  <h1>How does it work?</h1>
+  <p>
+    There was a single, very crucial specification that I required to consider Titune a success: <b>it had to be serverless</b>.
+  </p>
+  <p>
+    By serverless, I meant I wanted to host it on GitHub pages, which meant I wouldn't really have access to a server or backend. This meant I had to get creative with the implementation.
+  </p>
+
+  <h2>Getting YouTube Videos</h2>
+  <p>
+    To get YouTube videos, Titune uses the public, authentication-less API that is provided by all <a href="https://invidious.io/" target="_blank">Invidious</a> instances. This API is stupidly simple,
+    and Titune only really requires two endpoints to get all of the data it needs. The best part is that users can choose which Invidious instance they want to use, so if one goes down,
+    or there is one in a closer location, they can switch to that one! All API calls happen in the browser.
+  </p>
+  <div>
+    Once the audio stream URL is retrieved, it's as simple as attaching it to the <pre>audio</pre> element, and playing it!
+  </div>
+
+  <h2>Syncing</h2>
+  <p>
+    So, without any backend, how can the site on one computer be playing at the same (or close enough) time as the site on another computer? <i>Especially</i> if the playlist is
+    going to be shuffled all the time? Well, I ended up using...
+  </p>
+  <p>
+    <b>...deterministic shuffling!</b>
+  </p>
+  <p>
+    Okay I don't think it was exciting enough to warrant the boldface, but that <i>is</i> the solution. The overarching idea
+    is that the shuffle function is seeded with the current system time. This means that the same playlist will always be shuffled in the same way, and be playing the same song,
+    at the same elapsed time, on all devices.
+  </p>
+
+  <h3>A Gaze Into the Madness</h3>
+  <div>
+    Let's take a quick look at how it actually works with a couple of (brief, I promise) code samples. Below is the shuffle algorithm, which is just a
+    <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank">Fisher-Yates shuffle</a>:
+  </div>
+
+  <div class="titune_img">
+    <img src="./image/screenshots/titune/titune_example_seeded.png" />
+    <img src="./image/screenshots/titune/titune_example_shuffle.png" />
+  </div>
+
+  <div>
+    If you know Fisher-Yates (or read the Wikipedia page, like me!), you'll know that we are replacing the "random number" with the seed that we are passing in, which makes the whole shuffle deterministic. As long as system time is the same,
+    the shuffle will be the same across any system. You can think of the <pre>dynSeed</pre> variable as the amount of times since epoch that the playlist has theoretically been played to it's entirety. This way, a new
+    shuffle order is only determined when the whole list of songs has been exhausted!
+  </div>
+
+  <h1>How do I use it?</h1>
+  <p>
+    It's super easy! When you navigate to the site, you will see a "plus" icon in the top left:
+  </p>
+
+  <div class="titune_img">
+    <img src="./image/screenshots/titune/titune_add.png" style="width: 30% !important" />
+  </div>
+
+  <p>
+    Click that, paste a YouTube playlist link and (optionally) a name, and you will be redirected to the radio for that playlist! You can then share that link with anyone to listen along with you. The page will
+    look something like this, and change depending on what's playing:
+  </p>
+
+  <div class="titune_img">
+    <img src="./image/screenshots/titune/titune_radio.png" />
+  </div>
+
+  <p>
+    You can visit the site <a href="https://spikehd.github.io/Titune/" target="_blank">here</a>, and the source code <a href="https://github.com/SpikeHD/Titune" target="_blank">here</a>! Below are some stations you can take a look at
+    (the site starts muted, I promise):
+
+    <ul>
+      <li>
+        <a href="https://spikehd.github.io/Titune/?id=PLASaIFJLhHizEz1tpn5EPO2vlQtrvn_XN&name=Everhood Soundtrack" target="_blank">Everhood Soundtrack</a>
+      </li>
+
+      <li>
+        <a href="https://spikehd.github.io/Titune/?id=PLFvR2bZRQluxdZmyfSj5mW5mvNmtvt6Un&name=To%20Pimp%20a%20Butterfly" target="_blank">24/7 To Pimp a Butterfly</a>
+      </li>
+
+      <li>
+        <a href="https://spikehd.github.io/Titune/?id=PL9amtKqWY8ajIjSWZFrm7ZPlHY_sSyWMK&name=Music for Dead Guys" target="_blank">Music for Dead Guys (Neon White)</a>
+      </li>
+    </ul>
+  </p>
+</div>

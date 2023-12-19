@@ -837,7 +837,7 @@
 
 #gm_root h1,
 #gm_root h2 {
-  font-family: open_sansbold, Arial, sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
 }
 
 #gm_root h1 {
@@ -860,3 +860,51 @@
   display: inline-block;
 }
 
+/* TITUNE */
+#window_titune .window_contents {
+  padding-top: 0;
+  padding-bottom: 20;
+
+  color: #fff;
+  background: #202020; 
+
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#titune_main {
+  width: 90%;
+}
+
+#titune_main .titune_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  width: 100%;
+}
+
+#titune_main pre {
+  display: inline-block;
+  background: #181818;
+  color: #d49fff;
+
+  padding: 4px;
+  margin: 0;
+
+  border-radius: 4px;
+}
+
+.titune_img img {
+  width: 80%;
+  border-radius: 8px;
+}
+
+#titune_main a {
+  color: #34ffee;
+  font-weight: bold;
+}
