@@ -10,7 +10,12 @@ function updateTime() {
 
   const isPm = currentDate.getHours() >= 12;
   const hours = currentDate.getHours() % 12 || 12;
-  const minutes = currentDate.getMinutes();
+  let minutes = currentDate.getMinutes();
+
+  // Add a 0 to minutes if needed
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
   const day = currentDate.getDate();
   const monthName = currentDate.toLocaleString('default', { month: 'long' });
