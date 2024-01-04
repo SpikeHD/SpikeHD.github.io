@@ -65,7 +65,7 @@ async function startBoot() {
   megatrends.style = 'display: none'
 
   for (const msg of messages) {
-    await wait(rand(50, 300))
+    await wait(rand(20, 100))
 
     await doConsoleMessage(msg)
   }
@@ -78,7 +78,7 @@ async function startBoot() {
   doConsoleMessage('Booting up')
 
   // Final wait before sending to "login screen"
-  await wait(3000)
+  await wait(2000)
 
   appended.remove()
   const consoleContainer = document.querySelector('#console_messages')
