@@ -18,10 +18,8 @@
     <p>
       Dorion was a project I created to leverage the pre-installation of <a target="_blank"
         href="https://learn.microsoft.com/en-us/windows/apps/design/controls/web-view">WebView2</a>
-      on Windows 11 and updated Windows 10 machines to create a smaller Discord binary. The backend is written in Rust
-      and the "frontend" (which is basically
-      just a settings menu and splash screen) is written in pure HTML/CSS/JS. The project also supports themes and
-      plugins!
+      on Windows 11 and updated Windows 10 machines to create a smaller Discord binary. The backend is written in Rust,
+      the splash screen in HTML/CSS, and the injected UI in SolidJS.
     </p>
     <div class="dorion_img">
       <img src="./image/screenshots/dorion/dorion_2.jpg" />
@@ -32,7 +30,7 @@
         href="https://tauri.app/">Tauri</a>, a desktop application framework that
       is designed to allow creating web-based frontends and applications with Rust backends. Using Tauri, I was able to
       create a binary that was only ~13mb! (That is
-      much better than the ~70mb of the Discord client)
+      much better than the ~70mb minimum of the Discord client)
     </p>
     <p>
       Quickly though, the scope of Dorion evolved. I learned that <a target="_blank"
@@ -46,15 +44,17 @@
     <p>
       ... I needed to overcomplicate yet another project.
     </p>
-    <div class="p">
+    <p>
       So I did! In the Rust backend, I wrote functions that inject CSS and JavaScript, which was actually relatively
       easy.
+    </p>
+    <div class="p">
       I then had to create a CSS preprocessor, as themes that used CSS
       <pre>url()</pre>s would fail due to CORS on the Discord site. This preprocessor would find all
       <pre>url()</pre>-based imports
       within the CSS, which includes other CSS files (that are just appended to the main CSS string that is injected),
       as well as images (which are downloaded and
-      inserted as raw Base64).
+      inserted as raw Base64 data URIs).
     </div>
     <p>
       Everything loads asynchronously, and the preprocessors also run multi-threaded, making them <i>super</i> fast.
