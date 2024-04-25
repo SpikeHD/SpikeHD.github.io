@@ -74,6 +74,8 @@
 
 #window_dorion .window_contents {
   background-color: #36393f;
+  padding: 0;
+  padding-bottom: 20px;
 }
 
 #dorion pre {
@@ -87,7 +89,7 @@
 }
 
 #dorion div {
-  margin: 10px;
+  margin: 0;
 }
 
 #dorion p, h1, h2, h3, div.p {
@@ -95,6 +97,11 @@
 }
 
 #dorion {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   text-align: left;
 
@@ -116,6 +123,57 @@
   padding: 10px;
   background-color: #26282c;
   border-radius: 6px;
+}
+
+#dorion_sidebar {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 0;
+
+  width: 10%;
+  height: 93.5%;
+
+  background-color: #1e1f22;
+}
+
+#dorion_content {
+  width: 90%;
+  margin-left: 12% !important;
+}
+
+#dorion_sidebar_thing {
+  border-bottom: 1px solid #444;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
+
+#dorion_sidebar_thing .dorion_sidebar_item {
+  border-radius: 50%;
+  background-color: #2b2d31;
+
+  width: 50px;
+  height: 50px;
+}
+
+.dorion_sidebar_item {
+  border-radius: 50%;
+  background-color: #fff;
+
+  width: 50px;
+  height: 50px;
+
+  margin-bottom: 10px !important;
+
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dorion_sidebar_item:hover {
+  cursor: pointer;
+  border-radius: 42%;
 }
 
 /* SOLUTIONS */
