@@ -3,116 +3,97 @@
 <html>
   <head>
     <title>Dorion</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/SpikeHD/Dorion/main/src-tauri/icons/icon.png">
     <link rel="stylesheet" href="./index.css">
   </head>
 
   <body>
-    <div id="top_chunk">
-      <div class="inner">
-        <div id="home" onclick="window.location.assign('/')">
-          <img src="./images/home.svg" />
-        </div>
-    
-        <div id="preview">
-          <div id="prev_1">
-            <img src="./images/settings_full.png" />
-          </div>
-          <div id="prev_2">
-            <img src="./images/theme_full.png" />
-            <span>Theme: <a target="_blank" href="https://github.com/catppuccin/discord">Catppuccin - Frappe</a></span>
-          </div>
-        </div>  
+    <div id="home" onclick="window.location.assign('/')">
+      <img src="./images/home.svg" />
+    </div>
 
-        <div id="main">
-          <span id="title"></span>
+    <div id="inner">
+      <img id="main_image" src="https://raw.githubusercontent.com/SpikeHD/Dorion/main/src-tauri/icons/icon.png" />
+
+      <h1 id="title"></h1>
+      <span>
+        A simple, lightweight alternative Discord client with themes, plugins, and more. And it all just works*
+      </span>
+
+      <div id="link_buttons">
+        <a href="https://github.com/SpikeHD/Dorion" target="_blank">
+          <span>GitHub</span>
+          <img src="../../image/github.png" />
+        </a>
+
+        <a href="https://github.com/SpikeHD/Dorion?tab=readme-ov-file#download" target="_blank">
+          <span>Download</span>
+          <img src="images/download.png" />
+        </a>
+
+        <a href="" target="_blank">
+          <span>Support</span>
+          <img src="images/discord.png" />
+        </a>
+      </div>
+
+      <div id="cards">
+        <div class="info_card">
+          <h2>Storage-conscience</h2>
+          <span>
+            Dorion is designed specifically to take up as little space as possible.
+            Not only does this include initial installation, but it also exposes the option to periodically
+            clear cache!
+            <br>
+            <br>
+            Take a <a href="https://github.com/SpikeHD/Dorion/releases/latest" target="_blank">look for yourself</a>, the
+            installation files are ~5x smaller!
+          </span>
         </div>
-    
-        <div id="links">
-          <div class="link_btn">
-            <a target="_blank" href="https://github.com/SpikeHD/Dorion">GitHub</a>
-          </div>
-          <div class="link_btn">
-            <a target="_blank" href="https://github.com/SpikeHD/Dorion/releases/latest">Download</a>
-          </div>
+
+        <div class="info_card">
+          <h2>Ground-up Reimplementations</h2>
+          <span>
+            While Dorion runs the web version of Discord, it is modified and extended to include many custom, high-performance reimplementations
+            of common desktop-only features.
+            <br>
+            <br>
+            Some features include RPC (via the <a href="https://github.com/OpenAsar/arrpc">arRPC</a>-compatible <a href="https://github.com/SpikeHD/rsRPC">rsRPC</a>),
+            global custom keybinds, and more!
+          </span>
         </div>
-  
-        <div class="down_arrow">
-          <img src="./images/arrow_down.svg" />
+
+        <div class="info_card">
+          <h2>System-Integrated</h2>
+          <span>
+            In order to facilitate such a low installation footprint, Dorion uses your operating system's built-in
+            webview implementation.
+            <br>
+            <br>
+            <b>Windows:</b> <a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/">Microsoft WebView2</a>
+            <br>
+            <b>Linux:</b> <a href="https://webkitgtk.org/">WebKitGTK</a>
+            <br>
+            <b>MacOS:</b> <a href="https://developer.apple.com/documentation/webkit/wkwebview#overview">WKWbview</a>
+          </span>
+        </div>
+
+        <div class="info_card">
+          <h2>Client Mod Support</h2>
+          <span>
+            Dorion uses (and requires) <a href="https://github.com/uwu/shelter" target="_blank">Shelter</a> to facilitate
+            backend/frontend communication and various UI elements.
+            <br>
+            <br>
+            Not only this, but Dorion comes integrated with <a href="https://github.com/Vendicated/Vencord" target="_blank">Vencord</a>
+            and <a href="https://github.com/Equicord/Equicord" target="_blank">Equicord</a>, ready for when you want them.
+          </span>
         </div>
       </div>
     </div>
 
-    <div id="info_chunk">
-      <div class="info_card hide">
-        <div>
-          <span>
-            Built with Rust on top of the Tauri library, Dorion uses your systems integrated
-            Webview implementation. This means Dorion has a tiny installation size (~18mb on Windows) and can even work portably.
-            <br />
-            <br />
-            Linux uses WebkitGTK, and MacOS uses WKWebview.
-          </span>
-        </div>
-        <div>
-          <img src="./images/rust.png" />
-        </div>
-      </div>
-
-      <div class="info_card hide">
-        <div>
-          <img src="./images/themes_and_plugins.png" />
-        </div>
-        <div>
-          <span>
-            Dorion supports browser-based plugins (such as <a href="https://github.com/Vendicated/Vencord">Vencord</a>), as well as full support for BetterDiscord themes!
-            <br />
-            <br />
-            Theme: <a href="https://betterdiscord.app/theme/Synthwave%20%2784">Synthwave '84</a>
-            <br />
-            Plugin: <a href="https://github.com/SpikeHD/DorionPluginsAndThemes/tree/main/plugins/IdBesideName">IdBesideName</a>
-          </span>
-        </div>
-      </div>
-
-      <div class="info_card hide">
-        <div>
-          <span>
-            With it's highly configurable settings, Dorion can hot-switch between regular, Canary, and PTB Discord clients, allow multiple instances
-            to be open, autoupdate, and more!
-            <br />
-            <br />
-            Theme: <a href="https://betterdiscord.app/theme/Discord%2011">Discord 11</a>
-          </span>
-        </div>
-        <div>
-          <img src="./images/settings.png" />
-        </div>
-      </div>
-
-      <div class="info_card hide">
-        <div>
-          <img src="./images/performancesettings.png" />
-        </div>
-        <div>
-          <span>
-            Dorion is built with "choice-of-performance" in mind. Want to auto-clear your cache when closing Dorion to preserve disk space? <i><b>You can!</b></i> Want to cache
-            your theme's CSS, making it snappier to load?  <i><b>You can do that too!</b></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="info_card hide">
-        <div>
-          <span>
-            <a href="https://github.com/uwu/shelter">Shelter</a> is the client mod that powers most complex Dorion functionality. While it is young, many
-            (including <a href="https://github.com/SpikeHD/shelter-plugins">myself</a>) are working to contribute to the Shelter plugin ecosystem!
-          </span>
-        </div>
-        <div>
-          <img src="./images/shelter.png" />
-        </div>
-      </div>
+    <div id="footer">
+      *most of the time
     </div>
   </body>
 </html>
