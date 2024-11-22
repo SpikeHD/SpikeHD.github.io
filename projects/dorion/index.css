@@ -41,6 +41,10 @@ h2 {
   margin-top: 0;
 }
 
+sup {
+  line-height: 0.4rem;
+}
+
 #main_image {
   margin-top: 1rem;
   height: 5rem;
