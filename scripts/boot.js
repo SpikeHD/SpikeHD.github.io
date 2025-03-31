@@ -4,7 +4,7 @@ CPU: INTEL (R) Core(TM) i3-530 CPU 2.93GHz <br>
 \tSpeed: 2.90 GHz <br><br>
 
 Press DEL to do Nothing <br>
-Press F8 for NO POPUP <br>
+Press F to skip the boot sequence <br>
 `
 const messages = [
   'Booting from hard disk: DISK0',
@@ -23,6 +23,8 @@ const messages = [
   'Initialized operating system',
 ]
 
+let booting = false
+
 document.addEventListener('DOMContentLoaded', async () => {
   if (getCookie('bootSequence') === 'false') {
     const consoleElm = document.querySelector('#console')
@@ -37,7 +39,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   await wait(500)
+  booting = true
   startBoot()
+})
+
+// Listen for F key to end boot early
+document.addEventListener('keyup', async (e) => {
+  console.log(e.key)
+  if (e.key === 'f' && booting) {
+    await cleanEndBoot()
+  }
 })
 
 /**
@@ -63,6 +74,9 @@ async function startBoot() {
 
   // Now remove megatrends stuff
   megatrends.style = 'display: none'
+
+  // Check if we are trying to skip the boot sequence
+  if (!booting) return
 
   for (const msg of messages) {
     await wait(rand(20, 100))
@@ -146,6 +160,20 @@ async function endBoot() {
   await wait(5000)
 
   bootElm.style.display = 'none'
+
+  await loadDesktopIcons()
+}
+
+/**
+ * Early cleanup if we are skipping the boot sequence
+ */
+async function cleanEndBoot() {
+  booting = false
+  const consoleElm = document.querySelector('#console')
+  const bootElm = document.querySelector('#boot')
+
+  consoleElm.style.display = "none"
+  bootElm.style.display = "none"
 
   await loadDesktopIcons()
 }
