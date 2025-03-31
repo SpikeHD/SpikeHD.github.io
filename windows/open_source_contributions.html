@@ -1,0 +1,135 @@
+<div id="oss_main"> 
+  <h1>Other Open-Source Contributions</h1>
+
+  <p>
+    Over the years, I've tried to contribute where I can to projects that I like or find interesting. I think I've gained very valuable knowledge from contributing
+    to other projects, mostly because I get valuable feedback on what I put in from people who typically know much more than me, but also because it plunges me into
+    large codebases that I learn from just by working within them!
+    <br><br>
+    Here's a list of some of the projects I've contributed to:
+  </p>
+
+  <div class="oss_leftright">
+    <!-- Right -->
+    <div class="oss_half">
+      <h2>Grasscutter</h2>
+      <span class="oss_subtitle">
+        A server emulator for Genshin Impact
+      </span>
+
+      <p>
+        I think this was one of my first open source contributions actually. There is a personal story behind some of this, but the high level gist
+        is that I thought the idea was cool, so I dove in and wrote some of the server's
+        <a href="https://github.com/Grasscutters/Grasscutter/pull/20" target="_blank">first</a>-<a href="https://github.com/Grasscutters/Grasscutter/pull/22" target="_blank">ever</a> commands!
+        Through this and other contributions (below), I ended up being part of the Grasscutter team for a while.
+        <br><br>
+        It is also the first (and last, as of writing) time I've used Java in a non-educational setting. Here's hoping it stays that way 🤢
+        <br><br>
+        (I also wrote the <a href="https://github.com/Grasscutters/Grasscutter/pull/102" target="_blank">GitHub build action</a> for this project)
+      </p>
+    </div>
+
+    <!-- Left -->
+    <div class="oss_half">
+      <img src="https://socialify.git.ci/grasscutters/grasscutter/image?description=1&language=1&name=1&owner=1&stargazers=1&theme=Light" onclick="window.open('https://github.com/Grasscutters/Cultivation/', '_blank')" />
+    </div>
+  </div>
+
+  <div class="oss_leftright">
+    <!-- Right -->
+    <div class="oss_half">
+      <img src="https://user-images.githubusercontent.com/107363768/221495236-ca1e2f2e-0f85-4765-a5f3-8bdcea299612.png" onclick="window.open('https://github.com/Grasscutters/Cultivation/', '_blank')" />
+    </div>
+
+    <!-- Left -->
+    <div class="oss_half">
+      <h2>Cultivation</h2>
+      <span class="oss_subtitle">
+        A Grasscutter Launcher
+      </span>
+
+      <p>
+        Cultivation is a launcher for the aforementioned Grasscutter server emulator. It handled automated server (for local hosting) and client downloads, mod management,
+        game patching, and more! It was created using <a href="https://tauri.app" target="_blank">Tauri</a>, which is a Rust-based library for creating desktop apps
+        using system-integrated webviews.
+        <br><br>
+        I wrote a most of this application (<a href="https://github.com/Grasscutters/Cultivation/graphs/contributors" target="_blank">check out that graph!</a>) with the help of a couple others,
+        though I no longer work on it.
+        <br><br>
+        The backend of the app is written in Rust, and the frontend is written in React + Typescript.
+      </p>
+    </div>
+  </div>
+
+  <div class="oss_leftright">
+    <!-- Right -->
+    <div class="oss_half">
+      <h2>Vita3K</h2>
+      <span class="oss_subtitle">
+        A Playstation Vita emulator
+      </span>
+
+      <p>
+        I never owned a Vita when I was younger, but I do love it's game library. I also own a handheld that is <a href="https://www.ayntec.com/products/odin2-mini" target="_blank">suspiciously Vita-shaped</a>,
+        which I use this emulator a lot on.
+        <br><br>
+        While I'm inexperienced with emulation (and am super interested in learning more about), I wanted to use 60 FPS patches <i>in one specific game <b>so bad</b></i> that I ended up taking a crack at
+        implementing an entire <a href="https://github.com/Vita3K/Vita3K/pull/3419" target="_blank">binary patching system</a>, similar to one found in <a href="https://github.com/Electry/VitaGrafix" target="_blank">VitaGrafix</a>,
+        a tool from the original Vita homebrew scene. 
+        <br><br>
+        I also have <a href="https://github.com/Vita3K/Vita3K/pull/3479" target="_blank">another pending PR (at time of writing)</a> that improves on this system alot.
+        Maybe one day I'll even fix some of the crashes that I encounter frequently...
+      </p>
+    </div>
+
+    <!-- Left -->
+    <div class="oss_half">
+      <img src="https://github.com/Vita3K/Vita3K/raw/master/_readme/screenshots/P4G.png" onclick="window.open('https://github.com/Vita3K/Vita3K/', '_blank')" />
+    </div>
+  </div>
+
+  <div class="oss_leftright">
+    <!-- Right -->
+    <div class="oss_half">
+      <img src="https://socialify.git.ci/tauri-apps/tauri/image?description=1&language=1&name=1&owner=1&stargazers=1&theme=Light" onclick="window.open('https://github.com/tauri-apps/tauri/', '_blank')" />
+    </div>
+
+    <!-- Left -->
+    <div class="oss_half">
+      <h2>Tauri/Wry</h2>
+      <span class="oss_subtitle">
+        Rust libraries for creating native applications
+      </span>
+
+      <p>
+        As an avid Tauri user for the <a href="https://spikehd.github.io/projects/dorion" target="_blank">Dorion</a> project, I've had to contribute to Tauri a few times, specifically regarding
+        <a href="https://github.com/tauri-apps/tauri/pull/11056" target="_blank">extension support</a>.
+        The <code>tauri</code> PRs were all pretty low-friction and the people who work on it are very nice, but since it uses <code>wry</code> under the hood, I needed to coordinate
+        my PRs between several repos!
+      </p>
+    </div>
+  </div>
+
+  <div class="oss_leftright">
+    <!-- Right -->
+    <div class="oss_half">
+      <h2>WebUI (<code>rust-webui</code>)</h2>
+      <span class="oss_subtitle">
+        A C library for using webviews to create native applications
+      </span>
+
+      <p>
+       WebUI aims to allow users to create native applications using installed browsers (note: this is different from webviews). It is written in C, but provides bindings for MANY other languages,
+       such as Go, Zig, and Deno. What it lacked at the time, however, was a proper Rust library, <a href="https://github.com/webui-dev/rust-webui/pull/3" target="_blank">so I wrote one!</a>
+       <br><br>
+       This PR was pretty large, and it involved <code>bindgen</code>, lots of organization, GitHub Actions, and <i>so much</i> documentation. I'm happy with how it turned out,
+       but I didn't have time to keep maintaining it, and nobody else has stepped up, so it's sat pretty dormant since then. Womp womp.
+      </p>
+    </div>
+
+    <!-- Left -->
+    <div class="oss_half">
+      <img src="https://socialify.git.ci/webui-dev/rust-webui/image?description=1&language=1&name=1&owner=1&stargazers=1&theme=Light" onclick="window.open('https://github.com/webui-dev/rust-webui/', '_blank')" />
+    </div>
+  </div>
+</div>

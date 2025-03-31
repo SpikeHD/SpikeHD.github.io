@@ -92,7 +92,7 @@
   margin: 0;
 }
 
-#dorion p, h1, h2, h3, div.p {
+#dorion p, #dorion h1, #dorion h2, #dorion h3, #dorion div.p {
   width: 90%;
 }
 
@@ -965,4 +965,65 @@
 #titune_main a {
   color: #34ffee;
   font-weight: bold;
+}
+
+/* OSS contributions */
+#window_open_source_contributions {
+  background-color: #2b2d31;
+}
+
+#window_open_source_contributions .window_contents {
+  padding: 0;
+  color: #fff;
+}
+
+#oss_main {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 12px;
+}
+
+#oss_main code {
+  background-color: #1e1f22;
+  color: #fff;
+  padding: 4px;
+  margin: 0 2px;
+
+  border-radius: 4px;
+}
+
+#oss_main a {
+  color: #5697ff;
+}
+
+.oss_subtitle {
+  font-style: italic;
+}
+
+.oss_leftright {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  padding-top: 12px;
+}
+
+.oss_half {
+  width: 50%;
+  text-align: center;
+}
+
+.oss_half h2 {
+  margin: 4px;
+}
+
+.oss_half img {
+  width: 90%;
+  border-radius: 8px;
+}
+
+.oss_half img:hover {
+  cursor: pointer;
 }
