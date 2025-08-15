@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><a href="https://spikehd.github.io">Click here to visit!</a></h1>
+  <h1><a href="https://spikehd.dev">Click here to visit!</a></h1>
 </div>
 
 ![image](https://github.com/user-attachments/assets/c278e5c5-6f8f-4b2c-991f-1a52d6e4b4dd)
